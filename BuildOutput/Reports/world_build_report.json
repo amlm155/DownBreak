@@ -1,0 +1,24 @@
+{
+  "moduleName": "World",
+  "platform": "StandaloneWindows64",
+  "sharedDependencyList": [],
+  "bundleList": [
+    {
+      "bundleName": "world_abconfig.abassetbundle",
+      "sizeBytes": 1706,
+      "assetList": [
+        "Assets/MieMieFrameTools/Scripts/Frame/B_Assets/MmAssetsMethod/MmAsset/Generated/world_AbConfig.json"
+      ]
+    },
+    {
+      "bundleName": "world_world.abassetbundle",
+      "sizeBytes": 654883,
+      "assetList": [
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsB/Materials/LowPolyWeapons2_MAIN.mat",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsB/Models/Accessories/AmoBox_01.fbx",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsB/Textures/Weapons2_Texture_01.png",
+        "Assets/Arts/InteranlArts/Prefabs/SearchContainer/AmoBox_01_Prefab.prefab"
+      ]
+    }
+  ]
+}

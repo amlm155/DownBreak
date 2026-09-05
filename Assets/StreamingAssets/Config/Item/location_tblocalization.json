@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "module": "Common",
+    "key": "Confirm",
+    "comment": "确认按钮",
+    "zh_cn": "确认",
+    "en_us": "Confirm",
+    "ja_jp": "確認",
+    "ko_kr": "확인",
+    "fr_fr": "Confirmer"
+  },
+  {
+    "id": 2,
+    "module": "Common",
+    "key": "Cancel",
+    "comment": "取消按钮",
+    "zh_cn": "取消",
+    "en_us": "Cancel",
+    "ja_jp": "キャンセル",
+    "ko_kr": "취소",
+    "fr_fr": "Annuler"
+  },
+  {
+    "id": 3,
+    "module": "Setting",
+    "key": "Language",
+    "comment": "语言标题",
+    "zh_cn": "语言",
+    "en_us": "Language",
+    "ja_jp": "言語",
+    "ko_kr": "언어",
+    "fr_fr": "Langue"
+  }
+]

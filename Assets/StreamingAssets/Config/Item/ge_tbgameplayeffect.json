@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1001,
+    "name": "精力超饱和",
+    "icon_address": "",
+    "effect_address": "SuperSaturated",
+    "category": 2
+  },
+  {
+    "id": 1002,
+    "name": "精力低下",
+    "icon_address": "",
+    "effect_address": "Low",
+    "category": 2
+  },
+  {
+    "id": 1003,
+    "name": "精力耗尽",
+    "icon_address": "",
+    "effect_address": "Exhausted",
+    "category": 2
+  },
+  {
+    "id": 1101,
+    "name": "重度疼痛",
+    "icon_address": "",
+    "effect_address": "Heavy",
+    "category": 2
+  },
+  {
+    "id": 1102,
+    "name": "严重疼痛",
+    "icon_address": "",
+    "effect_address": "Critical",
+    "category": 2
+  },
+  {
+    "id": 1201,
+    "name": "饥饿",
+    "icon_address": "",
+    "effect_address": "Starving",
+    "category": 2
+  },
+  {
+    "id": 1202,
+    "name": "脱水",
+    "icon_address": "",
+    "effect_address": "Dehydrated",
+    "category": 2
+  },
+  {
+    "id": 1203,
+    "name": "饱食饮水回血",
+    "icon_address": "",
+    "effect_address": "WellFedHydratedRegen",
+    "category": 1
+  },
+  {
+    "id": 1301,
+    "name": "低理智",
+    "icon_address": "",
+    "effect_address": "Low",
+    "category": 2
+  },
+  {
+    "id": 1302,
+    "name": "危急理智",
+    "icon_address": "",
+    "effect_address": "Critical",
+    "category": 2
+  }
+]

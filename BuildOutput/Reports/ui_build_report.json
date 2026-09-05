@@ -1,0 +1,102 @@
+{
+  "moduleName": "UI",
+  "platform": "StandaloneWindows64",
+  "sharedDependencyList": [
+    "Assets/ExternalTools/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader",
+    "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/StandArt/Stand_SharpPanel.png",
+    "Assets/ExternalTools/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+    "Assets/ExternalTools/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
+    "Assets/ExternalTools/TextMesh Pro/Fonts/LiberationSans.ttf"
+  ],
+  "bundleList": [
+    {
+      "bundleName": "ui_abconfig.abassetbundle",
+      "sizeBytes": 3866,
+      "assetList": [
+        "Assets/MieMieFrameTools/Scripts/Frame/B_Assets/MmAssetsMethod/MmAsset/Generated/ui_AbConfig.json"
+      ]
+    },
+    {
+      "bundleName": "ui_common.abassetbundle",
+      "sizeBytes": 653536,
+      "assetList": [
+        "Assets/ExternalTools/TextMesh Pro/Fonts/LiberationSans.ttf",
+        "Assets/ExternalTools/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset",
+        "Assets/ExternalTools/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset",
+        "Assets/ExternalTools/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/StandArt/Stand_SharpPanel.png"
+      ]
+    },
+    {
+      "bundleName": "ui_icon.abassetbundle",
+      "sizeBytes": 9043092,
+      "assetList": [
+        "Assets/Arts/InteranlArts/Icons/Equiment/背包/中型_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Equiment/背包/中型背包 中灰棕_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Equiment/背包/粉色小书包_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Equiment/背包/蓝色小书包_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Food/沙丁鱼罐头_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Medicine/注射枪1号_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手短柄/军刀带刺_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手短柄/军刀无刺_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手短柄/小刀_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手长柄/尼泊尔刀_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手长柄/撬棍_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手长柄/棒球棍_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手长柄/棒球棍带刺_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/单手/单手长柄/榔头_Sprite.png",
+        "Assets/Arts/InteranlArts/Icons/Weapon/双手/消防斧_Sprite.png"
+      ]
+    },
+    {
+      "bundleName": "ui_ui_bag.abassetbundle",
+      "sizeBytes": 4858189,
+      "assetList": [
+        "Assets/Arts/InteranlArts/Prefabs/UI/UIBase/GridInventory/CellPrefab_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UI/UIBase/GridInventory/GridContainerNatureMask_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UI/UIBase/GridInventory/GridContainerOrigin_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UI/UIBase/GridInventory/ItemMenuPanelBase_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UI/UIBase/GridInventory/ItemViewPrefab_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/BagPanel/BagPanel_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/BagPanel/GridContainerGroup_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/BagPanel/ItemMenu_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/BagPanel/StackMenu_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/BagPanel/StateGroup_Prefab.prefab",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/StandArt/Stand_GridCell_Wire.png",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/StatusBarArt/Stand_Ring_Heavy.png",
+        "Assets/Scripts/1_System/Inventory/GridInventory/Arts/UI/frame1.png",
+        "Assets/Scripts/1_System/Inventory/GridInventory/Arts/UI/放大镜.png",
+        "Assets/Scripts/1_System/Inventory/GridInventory/Arts/UI/物品搜索遮罩.png"
+      ]
+    },
+    {
+      "bundleName": "ui_ui_hud.abassetbundle",
+      "sizeBytes": 7688010,
+      "assetList": [
+        "Assets/Arts/InteranlArts/Prefabs/UI/UIBase/ItemWheel/UIItemWheel_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/PlayerPanel/PlayerPanel_Prefab.prefab",
+        "Assets/ExternalTools/TextMesh Pro/Shaders/TMP_SDF.shader",
+        "Assets/MieMieFrameTools/ARequired/Front/NotoSansSC SDF.asset",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/CrosshairArt/Crosshair_Sprite.png",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/CrosshairArt/CrosshairNoPoint.png",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/CrosshairArt/PointCrosshair.png",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/CrosshairArt/XCrosshair.png",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/StandArt/Stand_Circle.png",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/StatusBarArt/Stand_Ring_Medium.png",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Components/Crosshair/Crosshair_Prefab.prefab"
+      ]
+    },
+    {
+      "bundleName": "ui_ui_popup.abassetbundle",
+      "sizeBytes": 22280,
+      "assetList": [
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/GameStopPanel/GameStopPanel_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/SettingPanel/SettingPanel_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/TipPanel/TipPanel_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/UIPanel/Wrold/3DItemInfoPanel_Prefab.prefab",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/DoTweeExtension/DoTweenAnimExtension/Presets/UI_UPCrossFade.asset",
+        "Assets/MieMieFrameTools/Scripts/Frame/H_UIFramework/MmUIFrameWork/StandUIPrefabs/Arts/StandArt/Stand_RoundPanel.png"
+      ]
+    }
+  ]
+}

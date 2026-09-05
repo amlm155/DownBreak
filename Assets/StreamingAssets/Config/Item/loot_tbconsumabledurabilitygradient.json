@@ -1,0 +1,30 @@
+[
+  {
+    "item_type": 0,
+    "full_weight": 8,
+    "high_weight": 32,
+    "mid_weight": 40,
+    "low_weight": 20
+  },
+  {
+    "item_type": 1,
+    "full_weight": 5,
+    "high_weight": 35,
+    "mid_weight": 40,
+    "low_weight": 20
+  },
+  {
+    "item_type": 3,
+    "full_weight": 15,
+    "high_weight": 40,
+    "mid_weight": 30,
+    "low_weight": 15
+  },
+  {
+    "item_type": 4,
+    "full_weight": 10,
+    "high_weight": 35,
+    "mid_weight": 35,
+    "low_weight": 20
+  }
+]

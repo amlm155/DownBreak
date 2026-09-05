@@ -1,0 +1,19 @@
+<module name="ge">
+
+    <enum name="EGameplayEffectCategory" comment="GE分类 0伤害 1治疗 2生存">
+        <var name="Damage" alias="伤害" value="0" comment="伤害类 GE"/>
+        <var name="Heal" alias="治疗" value="1" comment="治疗类 GE"/>
+        <var name="Survival" alias="生存" value="2" comment="生存状态类 GE"/>
+    </enum>
+
+    <bean name="GameplayEffect" comment="GameplayEffect资产索引">
+        <var name="id" type="int" comment="GE稳定唯一ID"/>
+        <var name="name" type="string" comment="编辑器和UI显示名称"/>
+        <var name="icon_address" type="string" comment="图标Addressables短名地址"/>
+        <var name="effect_address" type="string" comment="GE SO Addressables短名地址"/>
+        <var name="category" type="EGameplayEffectCategory" comment="GE分类"/>
+    </bean>
+
+    <table name="TbGameplayEffect" value="GameplayEffect" index="id" input="GameplayEffect@GE/GE.xlsx" comment="GameplayEffect索引表"/>
+
+</module>

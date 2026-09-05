@@ -1,0 +1,240 @@
+[
+  {
+    "id": 7001,
+    "name": "冰柜",
+    "icon_path": "冰柜图标",
+    "capacity": {
+      "x": 3,
+      "y": 4
+    },
+    "default_grade": 1,
+    "item_count_min": 1,
+    "item_count_max": 3,
+    "allowed_item_types": [
+      3,
+      4
+    ],
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 2
+      },
+      {
+        "item_id": 2009,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 7002,
+    "name": "冰箱",
+    "icon_path": "冰箱图标",
+    "capacity": {
+      "x": 4,
+      "y": 5
+    },
+    "default_grade": 1,
+    "item_count_min": 1,
+    "item_count_max": 3,
+    "allowed_item_types": [
+      3,
+      4
+    ],
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 2
+      },
+      {
+        "item_id": 2009,
+        "count": 1
+      },
+      {
+        "item_id": 2007,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 7003,
+    "name": "工具箱",
+    "icon_path": "工具箱图标",
+    "capacity": {
+      "x": 3,
+      "y": 4
+    },
+    "default_grade": 2,
+    "item_count_min": 1,
+    "item_count_max": 3,
+    "allowed_item_types": [
+      2,
+      3
+    ],
+    "break_drops": [
+      {
+        "item_id": 2005,
+        "count": 2
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 7004,
+    "name": "快递包裹",
+    "icon_path": "快递包裹图标",
+    "capacity": {
+      "x": 3,
+      "y": 3
+    },
+    "default_grade": 3,
+    "item_count_min": 1,
+    "item_count_max": 3,
+    "allowed_item_types": [
+      3
+    ],
+    "break_drops": [
+      {
+        "item_id": 2004,
+        "count": 2
+      },
+      {
+        "item_id": 2008,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 7005,
+    "name": "文件柜",
+    "icon_path": "文件柜图标",
+    "capacity": {
+      "x": 5,
+      "y": 5
+    },
+    "default_grade": 1,
+    "item_count_min": 1,
+    "item_count_max": 3,
+    "allowed_item_types": [
+      3
+    ],
+    "break_drops": [
+      {
+        "item_id": 2003,
+        "count": 2
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 7006,
+    "name": "纸箱",
+    "icon_path": "纸箱图标",
+    "capacity": {
+      "x": 4,
+      "y": 3
+    },
+    "default_grade": 3,
+    "item_count_min": 1,
+    "item_count_max": 3,
+    "allowed_item_types": [
+      3
+    ],
+    "break_drops": [
+      {
+        "item_id": 2003,
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": 7007,
+    "name": "绿色储物箱",
+    "icon_path": "绿色储物箱图标",
+    "capacity": {
+      "x": 6,
+      "y": 6
+    },
+    "default_grade": 0,
+    "item_count_min": 1,
+    "item_count_max": 3,
+    "allowed_item_types": [
+      1,
+      2,
+      3
+    ],
+    "break_drops": [
+      {
+        "item_id": 2007,
+        "count": 2
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 7008,
+    "name": "高保险柜",
+    "icon_path": "高保险柜图标",
+    "capacity": {
+      "x": 5,
+      "y": 8
+    },
+    "default_grade": 0,
+    "item_count_min": 1,
+    "item_count_max": 5,
+    "allowed_item_types": [
+      1,
+      2,
+      3
+    ],
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 3
+      },
+      {
+        "item_id": 2009,
+        "count": 1
+      },
+      {
+        "item_id": 2008,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 7009,
+    "name": "黄色储物箱",
+    "icon_path": "黄色储物箱图标",
+    "capacity": {
+      "x": 6,
+      "y": 6
+    },
+    "default_grade": 0,
+    "item_count_min": 1,
+    "item_count_max": 5,
+    "allowed_item_types": [
+      1,
+      2,
+      3
+    ],
+    "break_drops": [
+      {
+        "item_id": 2004,
+        "count": 2
+      },
+      {
+        "item_id": 2005,
+        "count": 1
+      }
+    ]
+  }
+]

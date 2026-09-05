@@ -1,0 +1,42 @@
+[
+  {
+    "grade": 0,
+    "empty_chance": 0.05,
+    "white": 35,
+    "green": 25,
+    "blue": 20,
+    "purple": 12,
+    "gold": 6,
+    "red": 2
+  },
+  {
+    "grade": 1,
+    "empty_chance": 0.1,
+    "white": 50,
+    "green": 22,
+    "blue": 15,
+    "purple": 8,
+    "gold": 4,
+    "red": 1
+  },
+  {
+    "grade": 2,
+    "empty_chance": 0.15,
+    "white": 60,
+    "green": 20,
+    "blue": 12,
+    "purple": 5,
+    "gold": 2.5,
+    "red": 0.5
+  },
+  {
+    "grade": 3,
+    "empty_chance": 0.2,
+    "white": 70,
+    "green": 18,
+    "blue": 8,
+    "purple": 3,
+    "gold": 0.8,
+    "red": 0.2
+  }
+]

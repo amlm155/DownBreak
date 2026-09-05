@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4326928cbf11f248b9c066ce65b86ef, type: 3}
+  m_Name: Dehydrated
+  m_EditorClassIdentifier: DownBreak.System::GAS.Core.GameplayEffect.GameplayEffectData
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  tableId: 1202
+  description: "\u53E3\u6E34\u5F52\u96F6\u65F6\u964D\u4F4E\u767E\u5206\u4E4B20\u6700\u5927\u4F53\u529B\u5E76\u6BCF5\u79D2\u6301\u7EED\u6263\u96642\u70B9\u751F\u547D"
+  gameplayTags: []
+  requiredNeedTags: []
+  requiredBanTags: []
+  durationPolicy: 2
+  duration: 5
+  isPeriodic: 1
+  period: 2
+  executePeriodicEffectOnApplication: 0
+  stackAggregation: 0
+  stackLimit: 1
+  stacksPerApplication: 1
+  durationRefreshPolicy: 1
+  periodResetPolicy: 1
+  expirationPolicy: 0
+  statModifierConfig:
+  - statId: Power
+    type: 1
+    value: -20
+    priority: 0
+    isMaxValueModifier: 1
+  - statId: Health
+    type: 0
+    value: -2
+    priority: 0
+    isMaxValueModifier: 0

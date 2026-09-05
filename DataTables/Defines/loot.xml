@@ -1,0 +1,50 @@
+<module name="loot">
+
+	<!-- 复用 item 模块的稀有度与网格尺寸 -->
+
+	<enum name="ELootGrade" comment="搜刮密度档 0A 1B 2C 3D">
+		<var name="A" value="0" comment="A档 最富"/>
+		<var name="B" value="1" comment="B档"/>
+		<var name="C" value="2" comment="C档"/>
+		<var name="D" value="3" comment="D档 最贫"/>
+	</enum>
+
+	<!-- 搜刮容器模板 非可穿戴物品 勿并入 Item -->
+	<bean name="ScrapContainer" comment="搜刮容器模板">
+		<var name="id" type="int" comment="容器模板ID"/>
+		<var name="name" type="string" comment="UI名称"/>
+		<var name="icon_path" type="string" comment="图标路径 短名=assetAliasList注册 或 完整路径"/>
+		<var name="capacity" type="item.GridSize" comment="格子容量 列x行"/>
+		<var name="default_grade" type="ELootGrade" comment="默认密度档 A~D"/>
+		<var name="item_count_min" type="int" comment="抽取件数下限"/>
+		<var name="item_count_max" type="int" comment="抽取件数上限"/>
+		<var name="allowed_item_types" type="(list#sep=,),item.EItemType" comment="允许物品大类 逗号分隔 装备/武器/材料/食物水分/药品 空=不限制"/>
+		<var name="break_drops" type="(list#sep=;),item.ItemCount" comment="破坏掉落 物品id,个数 如 2009,2;2002,1 空=不掉"/>
+	</bean>
+
+	<!-- 一档一行 空箱率与六色稀有度权重均为 float -->
+	<bean name="RarityGradient" comment="稀有度梯度 按密度档">
+		<var name="grade" type="ELootGrade" comment="密度档 A~D"/>
+		<var name="empty_chance" type="float" comment="空箱率 0~1"/>
+		<var name="white" type="float" comment="白色权重"/>
+		<var name="green" type="float" comment="绿色权重"/>
+		<var name="blue" type="float" comment="蓝色权重"/>
+		<var name="purple" type="float" comment="紫色权重"/>
+		<var name="gold" type="float" comment="金色权重"/>
+		<var name="red" type="float" comment="红色权重"/>
+	</bean>
+
+	<!-- 消耗物搜刮耐久 一行一个大类 权重任意正浮点 不必加到100 -->
+	<bean name="ConsumableDurabilityGradient" comment="消耗物搜刮耐久梯度 按物品大类">
+		<var name="item_type" type="item.EItemType" comment="物品大类 装备/武器/食物水分/药品"/>
+		<var name="full_weight" type="float" comment="满档权重 耐久百分比90-100"/>
+		<var name="high_weight" type="float" comment="高档权重 耐久百分比70-89"/>
+		<var name="mid_weight" type="float" comment="中档权重 耐久百分比40-69"/>
+		<var name="low_weight" type="float" comment="低档权重 耐久百分比1-39"/>
+	</bean>
+
+	<table name="TbScrapContainer" value="ScrapContainer" index="id" input="ScrapContainer@loot/loot.xlsx" comment="搜刮容器表"/>
+	<table name="TbRarityGradient" value="RarityGradient" index="grade" input="RarityGradient@loot/loot.xlsx" comment="稀有度梯度表"/>
+	<table name="TbConsumableDurabilityGradient" value="ConsumableDurabilityGradient" index="item_type" input="ConsumableDurabilityGradient@loot/loot.xlsx" comment="消耗物搜刮耐久梯度表"/>
+
+</module>

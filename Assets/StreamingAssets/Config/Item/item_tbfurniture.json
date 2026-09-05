@@ -1,0 +1,474 @@
+[
+  {
+    "id": 6001,
+    "name": "L形办公桌",
+    "description": "",
+    "icon_path": "L形办公桌图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "L形办公桌",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 2
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 6002,
+    "name": "三层置物架",
+    "description": "",
+    "icon_path": "三层置物架图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "三层置物架",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 3
+      },
+      {
+        "item_id": 2007,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 6003,
+    "name": "三层长柜子",
+    "description": "",
+    "icon_path": "三层长柜子图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "三层长柜子",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 3
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 6004,
+    "name": "书架",
+    "description": "",
+    "icon_path": "书架图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "书架",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 3
+      },
+      {
+        "item_id": 2003,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 6005,
+    "name": "原型桌台",
+    "description": "",
+    "icon_path": "原型桌台图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "原型桌台",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 3
+      },
+      {
+        "item_id": 2004,
+        "count": 5
+      }
+    ]
+  },
+  {
+    "id": 6006,
+    "name": "咖啡桌",
+    "description": "",
+    "icon_path": "咖啡桌图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "咖啡桌",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 3
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 6007,
+    "name": "四层置物架",
+    "description": "",
+    "icon_path": "四层置物架图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "四层置物架",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 5
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 6008,
+    "name": "床",
+    "description": "",
+    "icon_path": "床图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "床",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 5
+      },
+      {
+        "item_id": 2003,
+        "count": 4
+      },
+      {
+        "item_id": 2007,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 6009,
+    "name": "微波炉",
+    "description": "",
+    "icon_path": "微波炉图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "微波炉",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 5
+      },
+      {
+        "item_id": 2009,
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": 6010,
+    "name": "沙发",
+    "description": "",
+    "icon_path": "沙发图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "沙发",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 5
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      },
+      {
+        "item_id": 2007,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 6011,
+    "name": "洗手台",
+    "description": "",
+    "icon_path": "洗手台图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "洗手台",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 2
+      },
+      {
+        "item_id": 2009,
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": 6012,
+    "name": "清洁工推车",
+    "description": "",
+    "icon_path": "清洁工推车图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "清洁工推车",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 5
+      },
+      {
+        "item_id": 2002,
+        "count": 1
+      },
+      {
+        "item_id": 2005,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 6013,
+    "name": "游戏机",
+    "description": "",
+    "icon_path": "游戏机图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "游戏机",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 4
+      },
+      {
+        "item_id": 2010,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "id": 6014,
+    "name": "白色电脑椅",
+    "description": "",
+    "icon_path": "白色电脑椅图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "白色电脑椅",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 1
+      },
+      {
+        "item_id": 2002,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 6015,
+    "name": "蓝色电脑椅",
+    "description": "",
+    "icon_path": "蓝色电脑椅图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "蓝色电脑椅",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 1
+      },
+      {
+        "item_id": 2002,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 6016,
+    "name": "长条办公桌",
+    "description": "",
+    "icon_path": "长条办公桌图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "长条办公桌",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 2
+      },
+      {
+        "item_id": 2008,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "id": 6017,
+    "name": "面包机",
+    "description": "",
+    "icon_path": "面包机图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "面包机",
+    "break_drops": [
+      {
+        "item_id": 2009,
+        "count": 3
+      }
+    ]
+  },
+  {
+    "id": 6018,
+    "name": "电脑",
+    "description": "",
+    "icon_path": "电脑图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 50,
+    "place_prefab_path": "电脑",
+    "break_drops": [
+      {
+        "item_id": 2009,
+        "count": 5
+      }
+    ]
+  }
+]

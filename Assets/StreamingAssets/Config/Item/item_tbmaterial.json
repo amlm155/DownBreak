@@ -1,0 +1,172 @@
+[
+  {
+    "id": 2001,
+    "name": "卷纸",
+    "description": "卷纸",
+    "icon_path": "卷纸图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 2,
+    "max_durability": 0,
+    "world_prefab_path": "卷纸",
+    "durability_loss": 0
+  },
+  {
+    "id": 2002,
+    "name": "塑料片",
+    "description": "塑料片",
+    "icon_path": "塑料图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "塑料碎片",
+    "durability_loss": 0
+  },
+  {
+    "id": 2003,
+    "name": "布料碎片",
+    "description": "布料碎片",
+    "icon_path": "布料碎片图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "布料碎片",
+    "durability_loss": 0
+  },
+  {
+    "id": 2004,
+    "name": "玻璃碎片",
+    "description": "玻璃块",
+    "icon_path": "玻璃碎片图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "玻璃碎片",
+    "durability_loss": 0
+  },
+  {
+    "id": 2005,
+    "name": "空注射器",
+    "description": "空注射器",
+    "icon_path": "空注射器图标",
+    "data_size": {
+      "x": 1,
+      "y": 2
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 0,
+    "world_prefab_path": "空注射器",
+    "durability_loss": 0
+  },
+  {
+    "id": 2006,
+    "name": "纸",
+    "description": "纸",
+    "icon_path": "纸图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "纸片",
+    "durability_loss": 0
+  },
+  {
+    "id": 2007,
+    "name": "绳子",
+    "description": "绳子",
+    "icon_path": "绳子图标",
+    "data_size": {
+      "x": 1,
+      "y": 2
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "绳结",
+    "durability_loss": 0
+  },
+  {
+    "id": 2008,
+    "name": "胶带",
+    "description": "胶带",
+    "icon_path": "胶带图标",
+    "data_size": {
+      "x": 1,
+      "y": 1
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "胶带",
+    "durability_loss": 0
+  },
+  {
+    "id": 2009,
+    "name": "金属碎片",
+    "description": "金属碎片",
+    "icon_path": "金属碎片图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "金属碎片",
+    "durability_loss": 0
+  },
+  {
+    "id": 2010,
+    "name": "木板",
+    "description": "木板",
+    "icon_path": "木板图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 2,
+    "item_rarity": 0,
+    "stack_type": 1,
+    "max_stack_count": 10,
+    "max_durability": 0,
+    "world_prefab_path": "木板",
+    "durability_loss": 0
+  }
+]

@@ -1,0 +1,36 @@
+{
+    "name": "DownBreak.System",
+    "rootNamespace": "",
+    "references": [
+        "MieMieFrameWork.Runtime",
+        "MmInventory.ItemData",
+        "LubanTableData.Gen",
+        "Luban.Runtime",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem",
+        "UnityEngine.UI",
+        "MiMieEventBus",
+        "MiMieFSM",
+        "MiMieFSM.Unity",
+        "MiMieMVVM",
+        "Unity.Cinemachine",
+        "UniTask",
+        "DOTween.Modules"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DOTween.dll",
+        "DOTweenPro.dll",
+        "Newtonsoft.Json.dll",
+        "Sirenix.OdinInspector.Attributes.dll",
+        "Sirenix.Serialization.dll",
+        "Sirenix.Utilities.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

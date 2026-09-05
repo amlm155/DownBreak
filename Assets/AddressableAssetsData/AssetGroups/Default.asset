@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Default
+  m_GUID: 1595a4b14ae47134ab385ee8534b4384
+  m_SerializeEntries:
+  - m_GUID: 2246a3c8d99e8af4fa86fbe78fb1ad8a
+    m_Address: Assets/Arts/InteranlArts/Configs/WeaponConfig/WeaponConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1c4fb2dab6cdcc4289f0d31ad11c946
+    m_Address: "Assets/Arts/ExternalArts/\u8863\u670D/Materials/mtl_npc_csl_raglan_01m_01_01bw.mat"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a358096ef7c752c4f90cabdc08ecf27b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a7c14501bcb65a44dae0ad70a9e6cb14, type: 2}
+    - {fileID: 11400000, guid: 1c2007e3d6a37aa4d9ea5e15e95135ab, type: 2}

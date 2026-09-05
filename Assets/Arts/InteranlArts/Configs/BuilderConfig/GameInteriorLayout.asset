@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9d0f1c8a2e4d7395f607ab1c3e8d42, type: 3}
+  m_Name: GameInteriorLayout
+  m_EditorClassIdentifier: DownBreak.System::Mm_ProceduralBuilding.PaintedInteriorLayout
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  paintedBuildingPlan: {fileID: 11400000, guid: 8fba06db562d9d64eb340846fd31597b, type: 2}
+  furniturePlacementDataList:
+  - brushPreset: {fileID: 11400000, guid: b8bdf217cf6c451ba41e0f8098c4f962, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 1, y: 17}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 643592117ff84a41bcc9de782678e794, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 5, y: 18}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0a83fd6a3b114f618b02596a409ddbe3, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 11, y: 17}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0a83fd6a3b114f618b02596a409ddbe3, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 12, y: 17}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0a83fd6a3b114f618b02596a409ddbe3, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 12, y: 16}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0a83fd6a3b114f618b02596a409ddbe3, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 11, y: 16}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 04d1baab733a4e9fbb7e868b199ca2d2, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 6, y: 14}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: bc654d2467d34e019063eb1c362aba88, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 1, y: 14}
+    rotation: 1
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0046bb490bf2449bba99166e2107e3e1, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 14, y: 14}
+    rotation: 3
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0046bb490bf2449bba99166e2107e3e1, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 9, y: 14}
+    rotation: 3
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0046bb490bf2449bba99166e2107e3e1, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 9, y: 19}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 0046bb490bf2449bba99166e2107e3e1, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 13, y: 19}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 473ad5d0ed4543ccbd38da2fb021cb35, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 4, y: 18}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 7a62c4129c2c40b5aba5423cc78dd9bc, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 9, y: 5}
+    rotation: 1
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 4f9932ae7fdf45d0a3d78de1962fe770, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 9, y: 1}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 4f9932ae7fdf45d0a3d78de1962fe770, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 13, y: 1}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 4f9932ae7fdf45d0a3d78de1962fe770, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 11, y: 1}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 8c6005e36dbe4757bc4ce92418080cfe, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 6, y: 16}
+    rotation: 3
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: a3c99d64f6f146a09d6e1f44a1c2dd01, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 9, y: 16}
+    rotation: 1
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 8f33cb118127441c9856b8129180df6a, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 13, y: 4}
+    rotation: 3
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: 42b5b92452b34e38b22fbc33a9fdf4ac, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 14, y: 16}
+    rotation: 3
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: e993a4c76ed14f628e3ccf7fcf817d5d, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 5, y: 12}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: edd2bc37529544d896415bf185ca968e, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 4, y: 8}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0
+  - brushPreset: {fileID: 11400000, guid: e993a4c76ed14f628e3ccf7fcf817d5d, type: 2}
+    floorIndex: 0
+    anchorGridPos: {x: 1, y: 8}
+    rotation: 0
+    prefabRotationOffset: 0
+    locked: 0

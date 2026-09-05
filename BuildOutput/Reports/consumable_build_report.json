@@ -1,0 +1,73 @@
+{
+  "moduleName": "Consumable",
+  "platform": "StandaloneWindows64",
+  "sharedDependencyList": [],
+  "bundleList": [
+    {
+      "bundleName": "consumable_abconfig.abassetbundle",
+      "sizeBytes": 3402,
+      "assetList": [
+        "Assets/MieMieFrameTools/Scripts/Frame/B_Assets/MmAssetsMethod/MmAsset/Generated/consumable_AbConfig.json"
+      ]
+    },
+    {
+      "bundleName": "consumable_consum_food.abassetbundle",
+      "sizeBytes": 13476810,
+      "assetList": [
+        "Assets/Arts/ExternalArts/FP_AniamtionClip(仅参考)/FP_AmClips/吃饭与喝水/吃饭/进食_小鱼罐头_打开.anim",
+        "Assets/Arts/ExternalArts/标准第一人称动画资源/08_进食/进食_沙丁鱼_叉子.FBX",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Materials/Foods_Set_01/Foods_Set_01.mat",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Materials/Fork/Fork.mat",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Mesh/Things/Sprats_Fork_Mesh.FBX",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Mesh/Things/Sprats_Mesh.FBX",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Foods_Set_01/Foods_Set_01_Albedo.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Foods_Set_01/Foods_Set_01_Ao.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Foods_Set_01/Foods_Set_01_Metallic.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Foods_Set_01/Foods_Set_01_Normals.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Fork/Fork_Albedo.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Fork/Fork_Ao.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Fork/Fork_Metallic.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Fork/Fork_Normals.tga",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Food/Oringin/FoodAm_AmClip.anim",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Food/Oringin/Utensil_AmClip.anim",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Food/Oringin/食物本体动画_AmCc.controller",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Food/Oringin/餐具动画_AmCc.controller",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Food/Override/沙丁鱼罐头/沙丁鱼罐头_AmCc.overrideController",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Food/Override/沙丁鱼罐头/沙丁鱼罐头叉子_AmCc.overrideController",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/FoodAndWater/沙丁鱼罐头_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/FoodAndWater/沙丁鱼罐头叉子_Prefab.prefab"
+      ]
+    },
+    {
+      "bundleName": "consumable_consum_med.abassetbundle",
+      "sizeBytes": 48002494,
+      "assetList": [
+        "Assets/Arts/ExternalArts/标准第一人称动画资源/10_医疗注射/注射_注射器01_推进.FBX",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Materials/Syringe_01/Syringe_01.mat",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Materials/Syringe_02/Syringe_02.mat",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Materials/Syringe_03/Syringe_03_01.mat",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Mesh/Things/Syringe_01_Mesh.FBX",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Mesh/Things/Syringe_02_Mesh.FBX",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Mesh/Things/Syringe_03_Mesh.FBX",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_01/Syringe_01_Albedo.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_01/Syringe_01_Ao.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_01/Syringe_01_Metallic.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_01/Syringe_01_Normals.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_02/Syringe_02_Albedo.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_02/Syringe_02_Ao.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_02/Syringe_02_Metallic.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_02/Syringe_02_Normals.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_03/Syringe_03_Albedo_01.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_03/Syringe_03_Ao.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_03/Syringe_03_Metallic.tga",
+        "Assets/Arts/ExternalArts/第一人称动画配套资源/3D物品资源/Textures/Syringe_03/Syringe_03_Normals.tga",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Medicine/Oringin/MedicineAm_AmClip.anim",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Medicine/Oringin/医疗品本体动画_AmCc.controller",
+        "Assets/Arts/InteranlArts/Aniamtions/ItemAm/Medicine/Override/注射枪1号/注射枪1号_AmCc.overrideController",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Medicine/2号注射针管_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Medicine/3号异形注射枪_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Medicine/注射枪1号_Prefab.prefab"
+      ]
+    }
+  ]
+}

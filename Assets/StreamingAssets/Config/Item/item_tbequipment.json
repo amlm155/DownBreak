@@ -1,0 +1,288 @@
+[
+  {
+    "id": 1501,
+    "name": "蓝色小型背包",
+    "description": "可爱的蓝色小书包",
+    "icon_path": "蓝色小型背包图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 0,
+    "item_rarity": 1,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "蓝色小型背包",
+    "equip_slot": 1,
+    "armor_value": 0,
+    "capacity": {
+      "x": 6,
+      "y": 6
+    }
+  },
+  {
+    "id": 1502,
+    "name": "粉色小型背包",
+    "description": "可爱的粉色小书包",
+    "icon_path": "粉色小型背包图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 0,
+    "item_rarity": 1,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "粉色小型背包",
+    "equip_slot": 1,
+    "armor_value": 0,
+    "capacity": {
+      "x": 6,
+      "y": 6
+    }
+  },
+  {
+    "id": 1503,
+    "name": "灰棕中型背包",
+    "description": "一个稍微大号的背包",
+    "icon_path": "灰棕中型背包图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "灰棕中型背包",
+    "equip_slot": 1,
+    "armor_value": 0,
+    "capacity": {
+      "x": 8,
+      "y": 8
+    }
+  },
+  {
+    "id": 1504,
+    "name": "蓝白大型背包",
+    "description": "一个超大型的背包",
+    "icon_path": "蓝白大型背包图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 0,
+    "item_rarity": 3,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "蓝白大型背包",
+    "equip_slot": 1,
+    "armor_value": 0,
+    "capacity": {
+      "x": 10,
+      "y": 10
+    }
+  },
+  {
+    "id": 1505,
+    "name": "棕色T恤",
+    "description": "大地色系基础款",
+    "icon_path": "棕色T恤图标",
+    "data_size": {
+      "x": 3,
+      "y": 3
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "棕色T恤",
+    "equip_slot": 2,
+    "armor_value": 0,
+    "capacity": {
+      "x": 2,
+      "y": 3
+    }
+  },
+  {
+    "id": 1506,
+    "name": "白色T恤",
+    "description": "简约百搭白T恤",
+    "icon_path": "白色T恤图标",
+    "data_size": {
+      "x": 3,
+      "y": 3
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "白色T恤",
+    "equip_slot": 2,
+    "armor_value": 0,
+    "capacity": {
+      "x": 2,
+      "y": 3
+    }
+  },
+  {
+    "id": 1507,
+    "name": "黑色马甲",
+    "description": "酷黑的黑色马甲",
+    "icon_path": "黑色马甲图标",
+    "data_size": {
+      "x": 3,
+      "y": 3
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "黑色马甲",
+    "equip_slot": 2,
+    "armor_value": 0,
+    "capacity": {
+      "x": 4,
+      "y": 4
+    }
+  },
+  {
+    "id": 1508,
+    "name": "工装裤",
+    "description": "硬朗耐磨多口袋款",
+    "icon_path": "工装裤图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "工装裤",
+    "equip_slot": 3,
+    "armor_value": 0,
+    "capacity": {
+      "x": 3,
+      "y": 4
+    }
+  },
+  {
+    "id": 1509,
+    "name": "直筒裤",
+    "description": "垂坠修身直筒款",
+    "icon_path": "直筒裤图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "直筒裤",
+    "equip_slot": 3,
+    "armor_value": 0,
+    "capacity": {
+      "x": 2,
+      "y": 4
+    }
+  },
+  {
+    "id": 1510,
+    "name": "迷彩裤",
+    "description": "丛林隐匿迷彩装",
+    "icon_path": "迷彩裤图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "迷彩裤",
+    "equip_slot": 3,
+    "armor_value": 0,
+    "capacity": {
+      "x": 4,
+      "y": 4
+    }
+  },
+  {
+    "id": 1511,
+    "name": "卡其色棒球帽",
+    "description": "遮阳",
+    "icon_path": "卡其色棒球帽图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "卡其色棒球帽",
+    "equip_slot": 4,
+    "armor_value": 0,
+    "capacity": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": 1512,
+    "name": "白色棒球帽",
+    "description": "纯白清爽",
+    "icon_path": "白色棒球帽图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "白色棒球帽",
+    "equip_slot": 4,
+    "armor_value": 0,
+    "capacity": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  {
+    "id": 1513,
+    "name": "黑色棒球帽",
+    "description": "相当百搭",
+    "icon_path": "黑色棒球帽图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 0,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "黑色棒球帽",
+    "equip_slot": 4,
+    "armor_value": 0,
+    "capacity": {
+      "x": 0,
+      "y": 0
+    }
+  }
+]

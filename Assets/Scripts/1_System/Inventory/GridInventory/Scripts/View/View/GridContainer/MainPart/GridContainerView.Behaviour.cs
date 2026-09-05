@@ -1,0 +1,601 @@
+using System.Collections.Generic;
+using DBGameSystem;
+using Interaction.Player;
+using Sirenix.OdinInspector;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
+namespace MmInventory
+{
+    /// <summary>
+    /// 此脚本放置行为方法 是View层的流程控制 
+    /// ABC就是物品拖拽的三个阶段 D是物品旋转
+    /// </summary>
+    public partial class GridContainerView
+    {
+        /// <summary> 拖拽会话 </summary>
+        private readonly GridDragSession dragSession = new();
+
+        /// <summary> 当前高亮格子索引 </summary>
+        private int curHighLightCellIndex = -1;
+
+        /// <summary> footprint 预览高亮格子索引列表 </summary>
+        private readonly List<int> previewFootprintCellIndexList = new();
+
+        [ShowInInspector, ReadOnly, LabelText("预览锚点")]
+        private Vector2Int DebugPreviewAnchorPos => dragSession.PreviewAnchorPos;
+
+        #region A 拿起
+
+        private bool BeginDragHandler(ItemView itemView, PointerEventData eventData)
+        {
+            if (itemView is null || itemView.ItemData is null) return false;
+            if (!TryGetMouseInGridInfo(eventData.position, out var mouseOnGridPos, out _)) return false;
+
+            var startAnchorPos = itemView.ItemData.AnchorPos;
+            var startIsRotated = itemView.ItemData.IsRotated;
+            // 记录鼠标相对物品锚点的偏移 后续算预览锚点用
+            var startOffset = mouseOnGridPos - startAnchorPos;
+
+            // 数据层先 RemoveAt 腾出占格 失败则不进入拖拽
+            if (!gridInventoryService.TryRemoveItem(startAnchorPos).IsSuccess)
+                return false;
+
+            // 拖拽期间禁用滚动 避免 ScrollRect 抢输入
+            if (ScrollRect is not null) ScrollRect.enabled = false;
+
+            dragSession.Begin(itemView,
+                              startAnchorPos,
+                              startIsRotated,
+                              startOffset,
+                              itemView.ItemRectTransform.GetSiblingIndex(),
+                              this);
+
+            // 挂到 Canvas 脱离 scrollContent 避免滚轮滚动时物品跟着跳
+            dragSession.DraggingItem.ItemRectTransform.SetParent(Canvas.transform, true);
+
+            HandlerDragPreview(EOnDragState.OnBeginDrag);
+            SetTransformSibingIndex(EOnDragState.OnBeginDrag);
+            return true;
+        }
+
+        #endregion
+
+        #region B 拖拽中
+        private void DraggingHandler(PointerEventData eventData)
+        {
+            if (dragSession.DraggingItem is null)
+                return;
+
+            // 屏幕坐标转 UI 世界坐标后跟随 不可直接赋 eventData.position
+            SetDraggingItemFollowScreenPos(eventData.position);
+
+            var lastHoverContainer = dragSession.HoverContainer;
+            if (GridMainContainerManager.UpdateDropZoneHover(
+                    EDropZoneKind.Throw,
+                    eventData.position,
+                    dragSession.DraggingItem))
+            {
+                GridMainContainerManager.ClearDropZoneHover(EDropZoneKind.Equip);
+                RevertAutoRotationIfActive(dragSession.DraggingItem, dragSession);
+                lastHoverContainer?.ClearDragPreview();
+                ClearDragPreview();
+                dragSession.HoverContainer = null;
+                return;
+            }
+
+            if (GridMainContainerManager.UpdateDropZoneHover(
+                    EDropZoneKind.Equip,
+                    eventData.position,
+                    dragSession.DraggingItem))
+            {
+                RevertAutoRotationIfActive(dragSession.DraggingItem, dragSession);
+                lastHoverContainer?.ClearDragPreview();
+                ClearDragPreview();
+                dragSession.HoverContainer = null;
+                return;
+            }
+
+            var hasHit = GridMainContainerManager.TryResolveHoverContainer(
+                eventData.position,
+                out var hoverContainer,
+                out var mouseOnGridPos,
+                out var gridIndex);
+
+            // 鼠标不在任何容器上 撤销预览期自动旋转
+            if (!hasHit)
+            {
+                RevertAutoRotationIfActive(dragSession.DraggingItem, dragSession);
+                lastHoverContainer?.ClearDragPreview();
+                ClearDragPreview();
+                dragSession.HoverContainer = null;
+                return;
+            }
+
+            dragSession.HoverContainer = hoverContainer;
+
+            // 悬停在外部容器 由落点容器算 CrossContainer 预览
+            if (hoverContainer != dragSession.SourceContainer)
+            {
+                lastHoverContainer?.ClearDragPreview();
+
+                hoverContainer.HandleForeignDragPreview(
+                        dragSession.DraggingItem,
+                        dragSession.StartOffset,
+                        mouseOnGridPos,
+                        gridIndex,
+                        dragSession);
+                return;
+            }
+
+            SetTransformSibingIndex(EOnDragState.OnDragging);
+
+            dragSession.PreviewAnchorPos = GetPreviewAnchorPos(mouseOnGridPos,
+                                                               dragSession.StartOffset,
+                                                               dragSession.DraggingItem.ItemData);
+
+            var previewAnchorPos = dragSession.PreviewAnchorPos;
+
+            // 当前格不可放且曾自动旋转 先还原拖起朝向
+            TryRevertAutoRotationForPreview(dragSession.DraggingItem,
+                                            ref previewAnchorPos,
+                                            mouseOnGridPos,
+                                            dragSession.StartOffset,
+                                            ESwapPlaceMode.SameContainer,
+                                            dragSession);
+
+            // 当前朝向放不下时尝试自动旋转一次
+            TryAutoRotateForPreview(dragSession.DraggingItem,
+                                    ref previewAnchorPos,
+                                    mouseOnGridPos,
+                                    dragSession.StartOffset,
+                                    ESwapPlaceMode.SameContainer,
+                                    dragSession);
+            dragSession.PreviewAnchorPos = previewAnchorPos;
+
+            if (dragSession.CachedPreviewAnchorPos == dragSession.PreviewAnchorPos)
+                return;
+            dragSession.CachedPreviewAnchorPos = dragSession.PreviewAnchorPos;
+
+            HandlerDragPreview(EOnDragState.OnDragging);
+        }
+
+        #endregion
+
+        #region C 放下
+        private void EndDragHandler(PointerEventData eventData)
+        {
+            if (dragSession.DraggingItem is null) return;
+
+            var sourceContainer = dragSession.SourceContainer;
+
+            // 丢弃区优先 数据层已在 BeginDrag 移除 此处只提交 UI 销毁与世界生成
+            if (GridMainContainerManager.TryCommitDropZone(
+                    EDropZoneKind.Throw,
+                    eventData.position,
+                    dragSession.DraggingItem,
+                    sourceContainer))
+            {
+                GridMainContainerManager.ClearDropZoneHover(EDropZoneKind.Equip);
+                sourceContainer.ClearDragPreview();
+                ClearCellHighlight();
+                if (ScrollRect is not null)
+                    ScrollRect.enabled = true;
+                curHighLightCellIndex = -1;
+                dragSession.Clear();
+                return;
+            }
+
+            // 装备区次之
+            if (GridMainContainerManager.TryCommitDropZone(
+                    EDropZoneKind.Equip,
+                    eventData.position,
+                    dragSession.DraggingItem,
+                    sourceContainer))
+            {
+                sourceContainer.ClearDragPreview();
+                ClearCellHighlight();
+                if (ScrollRect is not null)
+                    ScrollRect.enabled = true;
+                curHighLightCellIndex = -1;
+                dragSession.Clear();
+                return;
+            }
+
+            GridContainerView hoverContainer;
+
+            // 根据松手位置确定落点容器与最终预览锚点
+            if (GridMainContainerManager.TryResolveHoverContainer(
+                    eventData.position,
+                    out hoverContainer,
+                    out var mouseOnGridPos,
+                    out _))
+            {
+                dragSession.PreviewAnchorPos = hoverContainer.GetPreviewAnchorPos(
+                    mouseOnGridPos, dragSession.StartOffset, dragSession.DraggingItem.ItemData);
+            }
+            else
+            {
+                // 落在空白处视为回到源容器原锚点
+                dragSession.PreviewAnchorPos = dragSession.StartAnchorPos;
+                hoverContainer = sourceContainer;
+                RevertAutoRotationIfActive(dragSession.DraggingItem, dragSession);
+            }
+
+            sourceContainer.ClearDragPreview();
+
+            if (hoverContainer != sourceContainer)
+            {
+                hoverContainer.ClearDragPreview();
+                HandleCrossContainerEndDrag(sourceContainer, hoverContainer);
+            }
+            else
+                HandleLocalEndDrag();
+
+            ClearCellHighlight();
+            HandlerDragPreview(EOnDragState.OnEndDrag);
+            SetTransformSibingIndex(EOnDragState.OnEndDrag);
+
+            if (ScrollRect is not null)
+                ScrollRect.enabled = true;
+            curHighLightCellIndex = -1;
+            dragSession.Clear();
+        }
+
+
+        #endregion
+
+
+        #region D 旋转
+
+        /// <summary>
+        /// 处理拖拽物品的旋转
+        /// 此方法在Update实时调用
+        /// </summary>
+        private void HandleDraggingItemRotation()
+        {
+            if (!dragSession.IsActive || !IsRotatePressedThisFrame())
+                return;
+
+            if (dragSession.DraggingItem is null)
+                return;
+
+            var result = gridInventoryService.TryRotateItem(dragSession.DraggingItem.ItemData);
+            if (!result.IsSuccess)
+                return;
+
+            // 玩家手动转过之后 关闭自动旋转并清除自动旋转标记
+            dragSession.ManualRotationLocked = true;
+            dragSession.AutoRotatedForPreview = false;
+
+            var itemDataA = result.ItemDataA;
+            ApplyItemViewOrientation(dragSession.DraggingItem, itemDataA);
+
+            if (!GridMainContainerManager.TryResolveHoverContainer(
+                    Mouse.current.position.ReadValue(),
+                    out var hoverContainer,
+                    out var mouseOnGridPos,
+                    out var gridIndex))
+                return;
+
+            // 旋转后 footprint 变了 强制刷新预览缓存
+            dragSession.InvalidatePreviewCache();
+            if (hoverContainer != dragSession.SourceContainer)
+            {
+                dragSession.HoverContainer = hoverContainer;
+                ClearDragPreview();
+                hoverContainer.HandleForeignDragPreview(
+                    dragSession.DraggingItem,
+                    dragSession.StartOffset,
+                    mouseOnGridPos,
+                    gridIndex,
+                    dragSession);
+                return;
+            }
+
+            dragSession.PreviewAnchorPos = GetPreviewAnchorPos(mouseOnGridPos,
+                                                               dragSession.StartOffset,
+                                                               dragSession.DraggingItem.ItemData);
+            HandlerDragPreview(EOnDragState.OnDragging);
+            dragSession.CachedPreviewAnchorPos = dragSession.PreviewAnchorPos;
+        }
+
+        /// <summary>
+        /// 读取项目统一旋转输入
+        /// </summary>
+        private static bool IsRotatePressedThisFrame()
+        {
+            var playerInput = GameHub.Get<IPlayerInput>();
+            if (playerInput != null && playerInput.IsRotatePressed)
+                return true;
+
+            return Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame;
+        }
+
+        /// <summary>
+        /// 预览锚点放不下时尝试自动旋转
+        /// </summary>
+        private bool TryAutoRotateForPreview(ItemView itemView,
+                                             ref Vector2Int previewAnchorPos,
+                                             Vector2Int mouseOnGridPos,
+                                             Vector2Int dragOffset,
+                                             ESwapPlaceMode swapPlaceMode,
+                                             GridDragSession sourceDragSession)
+        {
+            if (sourceDragSession.ManualRotationLocked)
+                return false;
+
+            if (itemView?.ItemData is null)
+                return false;
+
+            var itemData = itemView.ItemData;
+            // 正方形物品旋转无意义
+            if (itemData.DataSize.x == itemData.DataSize.y)
+                return false;
+
+            if (IsPreviewPlaceable(itemView, previewAnchorPos, swapPlaceMode))
+                return false;
+
+            if (!gridInventoryService.TryRotateItem(itemData).IsSuccess)
+                return false;
+
+            previewAnchorPos = GetPreviewAnchorPos(mouseOnGridPos, dragOffset, itemData);
+            if (IsPreviewPlaceable(itemView, previewAnchorPos, swapPlaceMode))
+            {
+                ApplyItemViewOrientation(itemView, itemData);
+                sourceDragSession.AutoRotatedForPreview = true;
+                return true;
+            }
+
+            // 旋转后仍放不下 转回原朝向
+            gridInventoryService.TryRotateItem(itemData);
+            previewAnchorPos = GetPreviewAnchorPos(mouseOnGridPos, dragOffset, itemData);
+            return false;
+        }
+
+        /// <summary>
+        /// 当前预览锚点是否可放置
+        /// </summary>
+        private bool IsPreviewPlaceable(ItemView itemView,
+                                        Vector2Int previewAnchorPos,
+                                        ESwapPlaceMode swapPlaceMode)
+        {
+            var itemDataB = gridInventoryService.GetItemAt(previewAnchorPos);
+            // 只问 Service 能否放 不在 View 里写放置算法
+            var state = gridInventoryService.JudgeDragPreviewState(itemView.ItemData,
+                                                                 itemDataB,
+                                                                 previewAnchorPos,
+                                                                 swapPlaceMode);
+            return state != EDragPreviewState.CannotPlace;
+        }
+
+        /// <summary>
+        /// 预览格不可放且曾自动旋转过 则还原为拖起朝向
+        /// </summary>
+        private void TryRevertAutoRotationForPreview(ItemView itemView,
+                                                     ref Vector2Int previewAnchorPos,
+                                                     Vector2Int mouseOnGridPos,
+                                                     Vector2Int dragOffset,
+                                                     ESwapPlaceMode swapPlaceMode,
+                                                     GridDragSession session)
+        {
+            if (!session.AutoRotatedForPreview || session.ManualRotationLocked)
+                return;
+
+            if (itemView?.ItemData is null)
+                return;
+
+            if (IsPreviewPlaceable(itemView, previewAnchorPos, swapPlaceMode))
+                return;
+
+            if (!RevertAutoRotationIfActive(itemView, session))
+                return;
+
+            previewAnchorPos = GetPreviewAnchorPos(mouseOnGridPos, dragOffset, itemView.ItemData);
+            session.InvalidatePreviewCache();
+        }
+
+        /// <summary>
+        /// 将拖拽物数据和视图旋转还原为拖起状态
+        /// </summary>
+        private bool RevertAutoRotationIfActive(ItemView itemView, GridDragSession session)
+        {
+            if (!session.AutoRotatedForPreview || session.ManualRotationLocked)
+                return false;
+
+            if (itemView?.ItemData is null)
+                return false;
+
+            var itemData = itemView.ItemData;
+            if (itemData.IsRotated == session.StartIsRotated)
+            {
+                session.AutoRotatedForPreview = false;
+                return false;
+            }
+
+            itemData.SetRotated(session.StartIsRotated);
+            ApplyItemViewOrientation(itemView, itemData);
+            session.AutoRotatedForPreview = false;
+            session.InvalidatePreviewCache();
+            return true;
+        }
+
+        #endregion
+
+
+        #region E 同容器与跨容器落点
+
+        /// <summary>
+        /// 同容器内结束拖拽
+        /// </summary>
+        private void HandleLocalEndDrag()
+        {
+            var itemView = dragSession.DraggingItem;
+            itemView.ItemRectTransform.SetParent(itemContent, true);
+
+            // 一次 TryPlaceItem 完成放 堆叠 交换 失败时 Service 内回滚
+            var result = gridInventoryService.TryPlaceItem(
+                itemView.ItemData, dragSession.StartAnchorPos, dragSession.PreviewAnchorPos);
+
+            if (!result.IsSuccess)
+            {
+                RollbackDragItem(itemView);
+                return;
+            }
+
+            var newItemDataA = result.ItemDataA;
+            var newItemDataB = result.ItemDataB;
+            var displacedItemDataList = result.DisplacedItemDataList;
+
+            // 堆叠或交换时同步目标物 B 的 UI
+            if (newItemDataB is not null
+                && itemViewDict.TryGetValue(newItemDataB.InstancedItemId, out var targetItemView))
+            {
+                SyncItemViewPlacement(targetItemView, newItemDataB);
+            }
+
+            // 堆叠耗尽时 A 数据被消耗 销毁对应 ItemView
+            if (newItemDataA is null)
+            {
+                itemViewDict.Remove(itemView.ItemData.InstancedItemId);
+                Destroy(itemView.gameObject);
+                return;
+            }
+
+            // 同步拖动物 UI
+            SyncItemViewPlacement(itemView, newItemDataA);
+
+            // 大换小 同步被挤开小物的 UI
+            if (displacedItemDataList is not null && displacedItemDataList.Count > 0)
+            {
+                foreach (var itemData in displacedItemDataList)
+                {
+                    if (itemViewDict.TryGetValue(itemData.InstancedItemId, out var displacedView))
+                        SyncItemViewPlacement(displacedView, itemData);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 处理跨容器交换
+        /// </summary>
+        /// <param name="sourceContainer">起始容器</param>
+        /// <param name="hoverContainer">落点容器</param>
+        private void HandleCrossContainerEndDrag(GridContainerView sourceContainer,
+                                                 GridContainerView hoverContainer)
+        {
+            var aitemView = dragSession.DraggingItem;
+            var dropAnchorPos = dragSession.PreviewAnchorPos;
+
+            // Core 双背包事务 快照与 B→A 两步都在 Service 内完成
+            var result = sourceContainer.gridInventoryService.TryCrossContainerDrop(
+                hoverContainer.gridInventoryService,
+                aitemView.ItemData,
+                sourceContainer.dragSession.StartAnchorPos,
+                dropAnchorPos);
+
+            if (!result.IsSuccess)
+            {
+                // 失败只回滚拖拽物 UI 网格已由 Core 还原或未改动
+                sourceContainer.RollbackDragItem(aitemView);
+                return;
+            }
+
+            var newA = result.ItemDataA;
+            bool isCrossSwap = result.SwapState != ESwapState.CanNotSwap;
+            bool isPartialStack = !isCrossSwap && newA is not null && result.ItemDataB is not null;
+
+            // 只有堆叠才会改 B 的数量 交换时 B 已不在落点容器 不能在这边刷
+            if (!isCrossSwap && result.ItemDataB is ItemRtData stackTarget)
+                hoverContainer.RefreshItemView(stackTarget);
+
+            // 部分堆叠后 A 仍在源容器 只刷新拖拽物并放回原位置
+            if (isPartialStack)
+            {
+                aitemView.ItemRectTransform.SetParent(sourceContainer.itemContent, true);
+                sourceContainer.SyncItemViewPlacement(aitemView, newA);
+                return;
+            }
+
+            // 跨容器堆叠耗尽时拖拽物只从源容器移除 不加入目标字典
+            if (newA is null)
+            {
+                sourceContainer.RemoveItemView(aitemView);
+                Destroy(aitemView.gameObject);
+                return;
+            }
+
+            // 拖动物 ItemView 从源容器字典迁到落点容器
+            sourceContainer.RemoveItemView(aitemView);
+            hoverContainer.AddItemView(aitemView);
+
+            // 拖动物落到 B 侧新锚点 需按落点容器格子尺寸缩放
+            hoverContainer.SyncItemViewPlacement(aitemView, newA);
+
+            // B 换出的物或大换小小物 视图迁回 A 侧
+            sourceContainer.ApplyCrossContainerReturnViews(result, hoverContainer);
+        }
+
+        /// <summary>
+        /// 按交换类型迁移跨容器返回物视图
+        /// </summary>
+        private void ApplyCrossContainerReturnViews(InventoryOpReport result,
+                                                    GridContainerView fromContainer)
+        {
+            switch (result.SwapState)
+            {
+                // 等量或小换大 单个 B 从 B 容器迁到 A 容器
+                case ESwapState.Same:
+                case ESwapState.SmallToLarge:
+                    MoveSingleReturnItemView(result.ItemDataB, fromContainer);
+                    break;
+
+                // 大换小 多个小物逐个迁回 A
+                case ESwapState.LargeToSmall:
+                    MoveDisplacedItemViews(result, fromContainer);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 迁移等量或小换大的单个返回物视图
+        /// </summary>
+        /// <param name="itemDataB">返回物数据</param>
+        /// <param name="fromContainer">起始容器</param>
+        private void MoveSingleReturnItemView(ItemRtData itemDataB, GridContainerView fromContainer)
+        {
+            if (itemDataB is null
+                || !fromContainer.itemViewDict.TryGetValue(itemDataB.InstancedItemId, out var swapView))
+                return;
+
+            // ItemView 仍挂在 B 容器字典 迁到当前 A 容器并刷新布局
+            fromContainer.RemoveItemView(swapView);
+            this.AddItemView(swapView);
+            SyncItemViewPlacement(swapView, itemDataB);
+        }
+
+        /// <summary>
+        /// 迁移大换小被挤开物品视图
+        /// </summary>
+        private void MoveDisplacedItemViews(InventoryOpReport result,
+                                            GridContainerView fromContainer)
+        {
+            if (result.DisplacedItemDataList is null || result.DisplacedItemDataList.Count == 0)
+                return;
+
+            foreach (var data in result.DisplacedItemDataList)
+            {
+                if (!fromContainer.itemViewDict.TryGetValue(data.InstancedItemId, out var displacedView))
+                    continue;
+
+                fromContainer.RemoveItemView(displacedView);
+                AddItemView(displacedView);
+                SyncItemViewPlacement(displacedView, data);
+            }
+        }
+
+        #endregion
+    }
+}

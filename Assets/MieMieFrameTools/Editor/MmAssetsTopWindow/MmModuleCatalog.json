@@ -1,0 +1,677 @@
+{
+    "modules": [
+        {
+            "id": "framework-core",
+            "displayName": "HakiSheep 框架核心",
+            "category": "框架",
+            "description": "ModuleHub、MonoManager、SingletonMono 等模块生命周期与基础能力。",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Frame/A_FrameBase/ModuleHub.cs",
+            "tags": [
+                "核心",
+                "必装"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "input-system",
+            "displayName": "输入系统",
+            "category": "框架",
+            "description": "基于 Unity Input System 的输入管理、InputBuffer 缓冲与设备抽象。",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Frame/G_InputSystem/InputManager/InputManager.cs",
+            "tags": [
+                "输入"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "ui-frame",
+            "displayName": "HakiMm UI 框架",
+            "category": "框架",
+            "description": "UICoreMgr、面板加载、UI 生命周期与 DoTweenAnim 序列工具。编辑器生成器随包附带无需单独导入。",
+            "version": "1.0.6",
+            "gitUrl": "git@github.com:Haki-sheep/MmUIFrameWork.git?path=Assets/MmUIFrameWork",
+            "packageName": "com.hakisheep.mm-uiframe",
+            "installCheckPath": "Packages/com.hakisheep.mm-uiframe/package.json",
+            "tags": [
+                "UI"
+            ],
+            "isBuiltIn": false,
+            "subCategory": "可选模块"
+        },
+        {
+            "id": "save-archive",
+            "displayName": "存档系统",
+            "category": "框架",
+            "subCategory": "可选模块",
+            "description": "ArchiveMgr 存档读写，支持 Protobuf 等序列化扩展。",
+            "version": "1.0.3",
+            "gitUrl": "git@github.com:Haki-sheep/MmCSharp-Saver.git?path=unity",
+            "packageName": "com.hakisheep.mm-saver",
+            "installCheckPath": "Packages/com.hakisheep.mm-saver/package.json",
+            "tags": [
+                "存档"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "audio-manager",
+            "displayName": "音频管理",
+            "category": "框架",
+            "description": "BGM / SFX 分离管理，AudioMixer 路由与播放控制。",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Frame/F_Audio/AudioManager.cs",
+            "tags": [
+                "音频"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "pool-manager",
+            "displayName": "对象池",
+            "category": "框架",
+            "description": "PoolManager 对象池配置与复用管理。",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Frame/C_Pool/PoolManager.cs",
+            "tags": [
+                "性能"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "addressable-res",
+            "displayName": "Addressable 资源加载",
+            "category": "框架",
+            "description": "AddressableMgr 同步/异步加载与资源生命周期。",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Frame/B_Assets/AddressableMethod/AddressableMgr.cs",
+            "tags": [
+                "资源"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "mmasset-bundle",
+            "displayName": "MmAsset AB 资源管线",
+            "category": "框架",
+            "description": "AssetBundle 整包/热更 Runtime。编辑器在框架 Assets/MieMieFrameTools/Editor/MmAssetForEditor",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Frame/B_Assets/MmAssetsMethod/MmAsset/Runtime/MmAssetFrame.cs",
+            "tags": [
+                "资源",
+                "AB",
+                "热更"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "event-bus",
+            "displayName": "EventBus 事件总线",
+            "category": "框架",
+            "subCategory": "可选模块",
+            "description": "EventKey 结构体 EventBusCore 运行时 MiMieEventBus。框架壳在 D_EventCenter/Mono",
+            "version": "1.0.0",
+            "gitUrl": "git@github.com:Haki-sheep/MmCSharp-EventBus.git?path=unity",
+            "packageName": "com.hakisheep.mm-eventbus",
+            "installCheckPath": "Packages/com.hakisheep.mm-eventbus/package.json",
+            "tags": [
+                "事件"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "fsm-library",
+            "displayName": "FSM 库",
+            "category": "框架",
+            "subCategory": "可选模块",
+            "description": "UpdateFsm + ChainedFsm 运行时 MiMieFSM 库。编辑器生成器在框架 Assets/MieMieFrameTools/Editor/FsmForEditor",
+            "version": "1.0.0",
+            "gitUrl": "git@github.com:Haki-sheep/MmCSharp-FSM.git?path=unity",
+            "packageName": "com.hakisheep.mm-fsm",
+            "installCheckPath": "Packages/com.hakisheep.mm-fsm/package.json",
+            "tags": [
+                "FSM"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "dmvc",
+            "displayName": "DMVC 库",
+            "category": "框架",
+            "subCategory": "可选模块",
+            "description": "World Data Message Logic 分层 MiMieDMVC 运行时。编辑器在框架 Assets/MieMieFrameTools/Editor/DmvcForEditor",
+            "version": "1.0.0",
+            "gitUrl": "git@github.com:Haki-sheep/MmCSharp-DMVC.git?path=unity",
+            "packageName": "com.hakisheep.mm-dmvc",
+            "installCheckPath": "Packages/com.hakisheep.mm-dmvc/package.json",
+            "tags": [
+                "架构"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mvvm-library",
+            "displayName": "MVVM 库",
+            "category": "框架",
+            "subCategory": "可选模块",
+            "description": "ViewModel 绑定与属性通知 MiMieMVVM 运行时 UPM 可选安装",
+            "version": "1.0.0",
+            "gitUrl": "git@github.com:Haki-sheep/MmCSharp-MMVM.git?path=unity",
+            "packageName": "com.hakisheep.mm-mvvm",
+            "installCheckPath": "Packages/com.hakisheep.mm-mvvm/package.json",
+            "tags": [
+                "MVVM",
+                "UI"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-localization-system",
+            "displayName": "本地化",
+            "category": "框架",
+            "subCategory": "可选模块",
+            "description": "多语言表 运行时切换 富文本与 UI 文本自动替换 跨项目通用基础能力",
+            "version": "0.0.1",
+            "gitUrl": "https://github.com/yourname/MmLocalizationSystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmLocalizationSystem",
+            "tags": [
+                "本地化",
+                "规划中"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "tool-scene-ctrl",
+            "displayName": "场景控制",
+            "category": "工具",
+            "description": "Mm_SceneCtrl 同步与 UniTask 异步场景加载 进度经 MmGlobalEventBus 广播 防重复加载",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Tools/SceneCtrl/SceneCtrl.cs",
+            "tags": [
+                "运行时",
+                "场景"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "tool-unitask",
+            "displayName": "UniTask 调度",
+            "category": "工具",
+            "description": "AsyncTaskManager 线程池任务与主线程回调 UniTimerManager 可暂停计时器与批量取消",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Tools/UniTask/AsyncTaskManager.cs",
+            "tags": [
+                "运行时",
+                "异步"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "tool-unity-inter-events",
+            "displayName": "Unity 交互事件",
+            "category": "工具",
+            "description": "SimpleEventListener 与扩展方法 OnClick OnDrag 等 UI 指针事件链式绑定 减少 Inspector 拖拽",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Tools/UnityInterEvents/SimpleEventListener.cs",
+            "tags": [
+                "运行时",
+                "UI",
+                "事件"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "tool-physic-math",
+            "displayName": "物理与数学",
+            "category": "工具",
+            "description": "PhysicRayCast 无 GC 射线与 BoxCast 检测 MathExtensions Transform 平滑朝向与帧率无关插值",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Tools/Physic&Math/PhysicRayCast.cs",
+            "tags": [
+                "运行时",
+                "物理",
+                "数学"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "tool-color-tools",
+            "displayName": "颜色工具",
+            "category": "工具",
+            "description": "ColorTools Color 与 Hex 互转 HSV 调整与常用颜色静态扩展",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Scripts/Tools/ColorToos/ColorTools.cs",
+            "tags": [
+                "运行时",
+                "UI"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "plugin-dotween",
+            "displayName": "DOTween Pro",
+            "category": "插件",
+            "description": "Demigiant 商业补间动画库 DOTween 与 DOTween Pro 含 UI 音频 Physics 等模块 Mm UI Frame DoTweenAnim 依赖",
+            "version": "内置",
+            "gitUrl": "http://dotween.demigiant.com",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Plugins/Demigiant/DOTween/DOTween.dll",
+            "tags": [
+                "第三方",
+                "商业",
+                "动画"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "plugin-odin",
+            "displayName": "Odin Inspector",
+            "category": "插件",
+            "description": "Sirenix 商业 Inspector 增强 序列化 表格 按钮 模块中枢与框架编辑器大量依赖 Odin",
+            "version": "内置",
+            "gitUrl": "https://odininspector.com",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Editor.dll",
+            "tags": [
+                "第三方",
+                "商业",
+                "编辑器"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "plugin-hierarchy-designer",
+            "displayName": "Hierarchy Designer",
+            "category": "插件",
+            "description": "Hierarchy 窗口增强 文件夹 分隔线 图标预设 头工具 缺失脚本清理等 Asset Store 商业插件",
+            "version": "3.2.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Plugins/Hierarchy Designer/Editor/Scripts/HD_Manager.cs",
+            "tags": [
+                "第三方",
+                "商业",
+                "编辑器"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "plugin-unitask",
+            "displayName": "UniTask",
+            "category": "插件",
+            "description": "Cysharp 高性能 async await 替代 Task 框架 AsyncTaskManager SceneCtrl 等广泛使用 MIT 随 Plugins 内置",
+            "version": "2.5.10",
+            "gitUrl": "https://github.com/Cysharp/UniTask",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Plugins/UniTask/package.json",
+            "tags": [
+                "第三方",
+                "异步"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "plugin-epplus",
+            "displayName": "EPPlus",
+            "category": "插件",
+            "description": "EPPlus 商业 Excel xlsx 读写 DLL 可用于配置表导出或运行时表格解析",
+            "version": "内置",
+            "gitUrl": "https://epplussoftware.com",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Plugins/Epplus/EPPlus.dll",
+            "tags": [
+                "第三方",
+                "商业",
+                "Excel"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "plugin-newtonsoft-json",
+            "displayName": "Newtonsoft.Json",
+            "category": "插件",
+            "description": "Unity 官方 Newtonsoft.Json UPM 包 作为框架与存档系统唯一 Json.NET 依赖源",
+            "version": "3.2.1",
+            "gitUrl": "3.2.1",
+            "packageName": "com.unity.nuget.newtonsoft-json",
+            "installCheckPath": "Packages/com.unity.nuget.newtonsoft-json/package.json",
+            "tags": [
+                "第三方",
+                "序列化"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "plugin-google-protobuf",
+            "displayName": "Google.Protobuf",
+            "category": "插件",
+            "description": "Google Protobuf 运行时 DLL 配合框架 proto 生成器与存档序列化",
+            "version": "内置",
+            "gitUrl": "https://developers.google.com/protocol-buffers",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Plugins/Protobuf/Google.Protobuf.dll",
+            "tags": [
+                "第三方",
+                "序列化",
+                "存档"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "normal-bag-system",
+            "displayName": "普通背包",
+            "category": "玩法",
+            "subCategory": "库存",
+            "description": "列表式物品栏 快捷栏 拾取丢弃与使用逻辑",
+            "version": "0.1.0",
+            "gitUrl": "https://github.com/yourname/NormalBagSystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/NormalBagSystem",
+            "tags": [
+                "背包",
+                "物品"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "grid-bag-system",
+            "displayName": "网格背包",
+            "category": "玩法",
+            "subCategory": "库存",
+            "description": "通用网格背包 Runtime/Editor 与默认预制体 支持跨容器交互 宿主需自备 Odin 与 DOTween",
+            "version": "0.1.0",
+            "gitUrl": "git@github.com:Haki-sheep/Mm-GridInventory.git?path=Packages/com.hakisheep.grid-inventory",
+            "packageName": "com.hakisheep.grid-inventory",
+            "installCheckPath": "Packages/com.hakisheep.grid-inventory/package.json",
+            "tags": [
+                "背包",
+                "物品"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "motion-character-controller",
+            "displayName": "运动学角色控制器",
+            "category": "玩法",
+            "subCategory": "3C",
+            "description": "移动 跳跃 地面检测 斜坡与基础角色物理交互",
+            "version": "0.1.0",
+            "gitUrl": "https://github.com/yourname/MotionCharacterController.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MotionCharacterController",
+            "tags": [
+                "角色",
+                "控制"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-npc-ai-system",
+            "displayName": "NPC AI",
+            "category": "玩法",
+            "subCategory": "3C",
+            "description": "NPC 与敌人 AI 巡逻 追击 仇恨 行为状态与 NavMesh 寻路",
+            "version": "0.0.1",
+            "gitUrl": "https://github.com/yourname/MmNpcAISystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmNpcAISystem",
+            "tags": [
+                "AI",
+                "规划中"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-gas",
+            "displayName": "GAS",
+            "category": "玩法",
+            "subCategory": "3C",
+            "description": "Gameplay Ability 式技能与 Buff 效果叠加 属性修改与能力扩展",
+            "version": "0.1.0",
+            "gitUrl": "https://github.com/yourname/MmUnityGAS.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmUnityGAS",
+            "tags": [
+                "战斗",
+                "Buff",
+                "技能"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-dialogue-task-system",
+            "displayName": "对话与任务",
+            "category": "玩法",
+            "subCategory": "叙事",
+            "description": "节点对话 分支选项 任务接取追踪 成就条件与事件联动",
+            "version": "0.1.0",
+            "gitUrl": "https://github.com/yourname/MmDialogueTaskSystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmDialogueTaskSystem",
+            "tags": [
+                "剧情",
+                "任务",
+                "成就"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-shop-economy-system",
+            "displayName": "商店与经济",
+            "category": "玩法",
+            "subCategory": "经济",
+            "description": "货币 商品配置 购买出售与价格刷新",
+            "version": "0.0.1",
+            "gitUrl": "https://github.com/yourname/MmShopEconomySystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmShopEconomySystem",
+            "tags": [
+                "经济",
+                "规划中"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-day-night-system",
+            "displayName": "昼夜与时间",
+            "category": "玩法",
+            "subCategory": "世界",
+            "description": "游戏内时钟 光照过渡 时段事件触发",
+            "version": "0.0.1",
+            "gitUrl": "https://github.com/yourname/MmDayNightSystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmDayNightSystem",
+            "tags": [
+                "世界",
+                "规划中"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-build-system",
+            "displayName": "网格化建筑",
+            "category": "玩法",
+            "subCategory": "世界",
+            "description": "放置预览 吸附对齐 占地检测与建造撤销",
+            "version": "0.1.0",
+            "gitUrl": "https://github.com/yourname/MmBuildSystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmBuildSystem",
+            "tags": [
+                "建造",
+                "沙盒"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "mm-minimap-system",
+            "displayName": "小地图",
+            "category": "玩法",
+            "subCategory": "交互",
+            "description": "迷雾 标记点 队友位置与缩放拖拽",
+            "version": "0.0.1",
+            "gitUrl": "https://github.com/yourname/MmMinimapSystem.git",
+            "packageName": "",
+            "installCheckPath": "Assets/Modules/MmMinimapSystem",
+            "tags": [
+                "UI",
+                "规划中"
+            ],
+            "isBuiltIn": false
+        },
+        {
+            "id": "protobuf-tools",
+            "displayName": "Protobuf Generator",
+            "category": "编辑器拓展",
+            "description": "proto 编译与 C# 生成 配置位于 Editor/Protobuf/protobuf_settings.json",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Editor/SaveForEditor/Protobuf/ProtobufGeneratorWindow.cs",
+            "menuPath": "Tools/MieMieFrameWork/Protobuf/Protobuf Generator",
+            "tags": [
+                "编辑器",
+                "生成器",
+                "存档"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "folder-tools",
+            "displayName": "Folder Tools",
+            "category": "编辑器拓展",
+            "description": "文件夹收藏 常用路径打开与 Project 窗口增强",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Editor/FolderForEditor/ProjectWindow/FolderBookmarkWindow.cs",
+            "menuPath": "Tools/MieMieFrameWork/Folder/Folder Bookmarks",
+            "tags": [
+                "编辑器",
+                "路径"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "event-bus-editor",
+            "displayName": "EventBus Editor",
+            "category": "编辑器拓展",
+            "description": "EventKey 运行时监听监控 代码引用扫描",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Editor/EventBusForEditor/EventBusEditorWindow.cs",
+            "menuPath": "Tools/MieMieFrameWork/Event Bus",
+            "tags": [
+                "编辑器",
+                "事件"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "fsm-editor",
+            "displayName": "FSM Editor",
+            "category": "编辑器拓展",
+            "description": "TickFSM 黑板枚举生成 链式 FSM 队列生成 需安装 FSM 库",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Editor/FsmForEditor/TickFSMWindow.cs",
+            "menuPath": "Tools/MieMieFrameWork/FSM/TickFSMWindow",
+            "tags": [
+                "编辑器",
+                "FSM"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "dmvc-editor",
+            "displayName": "DMVC Editor",
+            "category": "编辑器拓展",
+            "description": "World 与 Data Message Logic 模块代码生成 执行顺序配置 需安装 DMVC 库",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Editor/DmvcForEditor/DMVCCodeGeneratorWindow.cs",
+            "menuPath": "Tools/MieMieFrameWork/DMVC/Code Generator",
+            "tags": [
+                "编辑器",
+                "架构"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "pool-editor",
+            "displayName": "Object Pool Editor",
+            "category": "编辑器拓展",
+            "description": "对象池预热配置 运行时雷达与池状态监控",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Editor/PoolWindow/PoolEditorWindow.cs",
+            "menuPath": "Tools/MieMieFrameWork/Object Pool",
+            "tags": [
+                "编辑器",
+                "性能"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "mmasset-editor",
+            "displayName": "MmAsset 资源管线",
+            "category": "编辑器拓展",
+            "description": "AB 整包/热更构建 模块配置 运行自检 入口 Tools/MieMieFrameWork/MmAsset/资源管线",
+            "version": "1.0.0",
+            "gitUrl": "",
+            "packageName": "",
+            "installCheckPath": "Assets/MieMieFrameTools/Editor/MmAssetForEditor/RootWindow/BuildWindow.cs",
+            "menuPath": "Tools/MieMieFrameWork/MmAsset/资源管线",
+            "tags": [
+                "编辑器",
+                "资源",
+                "AB"
+            ],
+            "isBuiltIn": true
+        },
+        {
+            "id": "ui-generator",
+            "displayName": "UI Generator",
+            "category": "编辑器拓展",
+            "description": "UI 预制体脚本生成 组件绑定与路径配置。随 com.hakisheep.mm-uiframe 一并安装 无需单独导入。",
+            "version": "1.0.6",
+            "gitUrl": "git@github.com:Haki-sheep/MmUIFrameWork.git?path=Assets/MmUIFrameWork",
+            "packageName": "com.hakisheep.mm-uiframe",
+            "installCheckPath": "Packages/com.hakisheep.mm-uiframe/Editor/UIForEditor/UIScripts/GenerateUITemp.cs",
+            "menuPath": "Tools/MieMieFrameWork/UI/GenerateUITemp",
+            "tags": [
+                "编辑器",
+                "UI"
+            ],
+            "isBuiltIn": false
+        }
+    ]
+}

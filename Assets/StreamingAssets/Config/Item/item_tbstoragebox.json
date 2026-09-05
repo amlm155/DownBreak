@@ -1,0 +1,28 @@
+[
+  {
+    "id": 7001,
+    "name": "箱子",
+    "description": "可放置的储物箱",
+    "icon_path": "玩家箱子01图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 6,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 0,
+    "place_prefab_path": "玩家箱子01",
+    "break_drops": [
+      {
+        "item_id": 2010,
+        "count": 3
+      }
+    ],
+    "capacity": {
+      "x": 6,
+      "y": 4
+    }
+  }
+]

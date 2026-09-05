@@ -1,0 +1,24 @@
+<module name="craft">
+
+	<!-- 材料一组一栏 id+数量 -->
+	<bean name="CraftMaterial" valueType="1" sep="," comment="合成材料">
+		<var name="item_id" type="int" comment="材料物品ID"/>
+		<var name="count" type="int" comment="数量"/>
+	</bean>
+
+	<bean name="Recipe" comment="合成配方">
+		<var name="id" type="int" comment="配方ID"/>
+		<var name="name" type="string" comment="配方名"/>
+		<var name="item_type" type="item.EItemType" comment="配方分类 对齐产物大类 用于制作页筛选"/>
+		<var name="output_item_id" type="int" comment="产物物品ID"/>
+		<var name="output_count" type="int" comment="产物个数 默认1"/>
+		<var name="materials" type="(list#sep=;),CraftMaterial" comment="材料列表 如 1001,2;1002,3"/>
+		<var name="unlock_floor" type="int" comment="蓝图出现楼层 仅作搜刮池门槛 0=开局即有"/>
+		<var name="unlock_blueprint_id" type="int" comment="解锁所需蓝图道具ID 0=无需蓝图(楼层即得)"/>
+		<var name="workbench_level" type="int" comment="制作条件 工作台等级 0=空手"/>
+		<var name="craft_time" type="int" comment="制作时间 单位秒"/>
+	</bean>
+
+	<table name="TbRecipe" value="Recipe" index="id" input="Recipe@CraftingRecipe/craft.xlsx" comment="合成配方表"/>
+
+</module>

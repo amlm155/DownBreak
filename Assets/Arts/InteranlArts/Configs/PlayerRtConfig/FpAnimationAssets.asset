@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b03dd2ee27be14194b649b9950e0bb, type: 3}
+  m_Name: FpAnimationAssets
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControllerSpace.AniamtionAssets
+  nullHandAnimator: {fileID: 22100000, guid: 9ef37fd81d8f68442ad75153f002020a, type: 2}
+  knifeAnimator: {fileID: 22100000, guid: 418dc3ac004645d40870e4cd06af18cd, type: 2}
+  singleHandAnimator: {fileID: 22100000, guid: c9cec9d07275746468c3de69702e8792, type: 2}
+  doubleHandAnimator: {fileID: 22100000, guid: b7b8143e3cc8cf947b353f2bdefd5380, type: 2}
+  telescopeAnimator: {fileID: 9100000, guid: dc8b7758bc225f340bc7bb386c0bd756, type: 2}
+  shieldAndStickAnimator: {fileID: 9100000, guid: c20e23c42ac21a149a10814577b9f110, type: 2}
+  sprayAnimator: {fileID: 22100000, guid: e9be2304efc75ca4689b840142478f8d, type: 2}
+  lanternAnimator: {fileID: 22100000, guid: 5b590c57dd7421849ab824fa79c5b99a, type: 2}
+  foodOrWaterAnimator: {fileID: 9100000, guid: aa38764de771adf42b2a3117063c0915, type: 2}
+  medicineAnimator: {fileID: 9100000, guid: ad82d8fda27b8b6429d5b5642bc51cd0, type: 2}

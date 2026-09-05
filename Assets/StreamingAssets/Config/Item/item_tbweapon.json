@@ -1,0 +1,233 @@
+[
+  {
+    "id": 1001,
+    "name": "小刀",
+    "description": "一把家用的小刀",
+    "icon_path": "小刀图标",
+    "data_size": {
+      "x": 1,
+      "y": 2
+    },
+    "item_type": 1,
+    "item_rarity": 1,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "小刀",
+    "attack_value": 10,
+    "weapon_name": 1,
+    "animation_type": 1,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1002,
+    "name": "尼泊尔刀",
+    "description": "锋利的弯刀",
+    "icon_path": "尼泊尔刀图标",
+    "data_size": {
+      "x": 1,
+      "y": 3
+    },
+    "item_type": 1,
+    "item_rarity": 3,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "尼泊尔刀",
+    "attack_value": 35,
+    "weapon_name": 2,
+    "animation_type": 2,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1003,
+    "name": "消防斧",
+    "description": "生存必备武器",
+    "icon_path": "消防斧图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 1,
+    "item_rarity": 5,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "消防斧",
+    "attack_value": 30,
+    "weapon_name": 3,
+    "animation_type": 3,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1004,
+    "name": "普通军刀",
+    "description": "黑漆漆的刀",
+    "icon_path": "普通军刀图标",
+    "data_size": {
+      "x": 1,
+      "y": 2
+    },
+    "item_type": 1,
+    "item_rarity": 1,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "普通军刀",
+    "attack_value": 15,
+    "weapon_name": 4,
+    "animation_type": 1,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1005,
+    "name": "锯齿军刀",
+    "description": "开刃以后黑漆漆的刀",
+    "icon_path": "锯齿军刀图标",
+    "data_size": {
+      "x": 1,
+      "y": 2
+    },
+    "item_type": 1,
+    "item_rarity": 1,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "锯齿军刀",
+    "attack_value": 15,
+    "weapon_name": 5,
+    "animation_type": 1,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1006,
+    "name": "撬棍",
+    "description": "物理学圣剑",
+    "icon_path": "撬棍图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 1,
+    "item_rarity": 3,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "撬棍",
+    "attack_value": 20,
+    "weapon_name": 6,
+    "animation_type": 2,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1007,
+    "name": "榔头",
+    "description": "一把榔头",
+    "icon_path": "榔头图标",
+    "data_size": {
+      "x": 1,
+      "y": 2
+    },
+    "item_type": 1,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "榔头",
+    "attack_value": 15,
+    "weapon_name": 7,
+    "animation_type": 2,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1008,
+    "name": "棒球棒",
+    "description": "威力十足的钝器",
+    "icon_path": "棒球棒图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 1,
+    "item_rarity": 3,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "棒球棒",
+    "attack_value": 20,
+    "weapon_name": 8,
+    "animation_type": 3,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1009,
+    "name": "带刺棒球棒",
+    "description": "看起来很不好惹",
+    "icon_path": "带刺棒球棒图标",
+    "data_size": {
+      "x": 2,
+      "y": 3
+    },
+    "item_type": 1,
+    "item_rarity": 4,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "带刺棒球棒",
+    "attack_value": 25,
+    "weapon_name": 9,
+    "animation_type": 3,
+    "light_durability_loss": 2,
+    "heavy_durability_loss": 3
+  },
+  {
+    "id": 1010,
+    "name": "木头",
+    "description": "一根木头嘻嘻",
+    "icon_path": "木头图标",
+    "data_size": {
+      "x": 1,
+      "y": 3
+    },
+    "item_type": 1,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "木头",
+    "attack_value": 5,
+    "weapon_name": 10,
+    "animation_type": 2,
+    "light_durability_loss": 5,
+    "heavy_durability_loss": 8
+  },
+  {
+    "id": 1011,
+    "name": "手电",
+    "description": "在合适的时候使用",
+    "icon_path": "手电图标",
+    "data_size": {
+      "x": 2,
+      "y": 1
+    },
+    "item_type": 1,
+    "item_rarity": 0,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "手电",
+    "attack_value": 1,
+    "weapon_name": 11,
+    "animation_type": 1,
+    "light_durability_loss": 1,
+    "heavy_durability_loss": 2
+  }
+]

@@ -1,0 +1,427 @@
+[
+  {
+    "id": 1,
+    "name": "蓝色小型背包",
+    "item_type": 0,
+    "output_item_id": 1501,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 2,
+    "name": "粉色小型背包",
+    "item_type": 0,
+    "output_item_id": 1502,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 3,
+    "name": "灰棕中型背包",
+    "item_type": 0,
+    "output_item_id": 1503,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 4,
+    "name": "蓝白大型背包",
+    "item_type": 0,
+    "output_item_id": 1504,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 5,
+    "name": "棕色T恤",
+    "item_type": 0,
+    "output_item_id": 1505,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 6,
+    "name": "白色T恤",
+    "item_type": 0,
+    "output_item_id": 1506,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 7,
+    "name": "黑色马甲",
+    "item_type": 0,
+    "output_item_id": 1507,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 8,
+    "name": "工装裤",
+    "item_type": 0,
+    "output_item_id": 1508,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 9,
+    "name": "直筒裤",
+    "item_type": 0,
+    "output_item_id": 1509,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 10,
+    "name": "迷彩裤",
+    "item_type": 0,
+    "output_item_id": 1510,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 11,
+    "name": "卡其色棒球帽",
+    "item_type": 0,
+    "output_item_id": 1511,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 12,
+    "name": "白色棒球帽",
+    "item_type": 0,
+    "output_item_id": 1512,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 13,
+    "name": "黑色棒球帽",
+    "item_type": 0,
+    "output_item_id": 1513,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2003,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 14,
+    "name": "小刀",
+    "item_type": 1,
+    "output_item_id": 1001,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 15,
+    "name": "尼泊尔刀",
+    "item_type": 1,
+    "output_item_id": 1002,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 16,
+    "name": "消防斧",
+    "item_type": 1,
+    "output_item_id": 1003,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 17,
+    "name": "普通军刀",
+    "item_type": 1,
+    "output_item_id": 1004,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 18,
+    "name": "锯齿军刀",
+    "item_type": 1,
+    "output_item_id": 1005,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 19,
+    "name": "撬棍",
+    "item_type": 1,
+    "output_item_id": 1006,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 20,
+    "name": "榔头",
+    "item_type": 1,
+    "output_item_id": 1007,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 21,
+    "name": "棒球棒",
+    "item_type": 1,
+    "output_item_id": 1008,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 22,
+    "name": "带刺棒球棒",
+    "item_type": 1,
+    "output_item_id": 1009,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 23,
+    "name": "木头",
+    "item_type": 1,
+    "output_item_id": 1010,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 24,
+    "name": "手电",
+    "item_type": 1,
+    "output_item_id": 1011,
+    "output_count": 1,
+    "materials": [
+      {
+        "item_id": 2009,
+        "count": 1
+      }
+    ],
+    "unlock_floor": 10,
+    "unlock_blueprint_id": 0,
+    "workbench_level": 0,
+    "craft_time": 2
+  },
+  {
+    "id": 25,
+    "name": "木箱",
+    "item_type": 2,
+    "output_item_id": 7001,
+    "output_count": 2,
+    "materials": [
+      {
+        "item_id": 2010,
+        "count": 2
+      }
+    ],
+    "unlock_floor": 11,
+    "unlock_blueprint_id": 1,
+    "workbench_level": 1,
+    "craft_time": 3
+  }
+]

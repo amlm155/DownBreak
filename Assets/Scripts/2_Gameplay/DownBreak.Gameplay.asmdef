@@ -1,0 +1,25 @@
+{
+    "name": "DownBreak.Gameplay",
+    "rootNamespace": "",
+ "references": [
+  "MieMieFrameWork.Runtime",
+  "MmInventory.ItemData",
+  "LubanTableData.Gen",
+  "Luban.Runtime",
+  "DownBreak.System",
+  "MiMieEventBus"
+ ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "Sirenix.OdinInspector.Attributes.dll",
+        "Sirenix.Serialization.dll",
+        "Sirenix.Utilities.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

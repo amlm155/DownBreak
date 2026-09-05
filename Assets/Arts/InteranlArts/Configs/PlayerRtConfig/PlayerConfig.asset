@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8603faccea5e5f498733adc88166700, type: 3}
+  m_Name: PlayerConfig
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerControllerSpace.PlayerConfig
+  playerCraftingLevel: 0
+  currentFloorLevel: 10
+  autoRecoveryPowerSpeed: 5
+  reducePowerSpeed: 10
+  recoveryPowerWaitTime: 2
+  autoReduceWaterSpeed: 5
+  autoReduceFoodSpeed: 10
+  crouchHeight: 1
+  crouchDuration: 0.2
+  crouchMoveSpeedRate: 0.5
+  normalMoveSpeedRate: 0.8
+  sprintMoveSpeedRate: 1.2
+  normalFov: 60
+  sprintFovIncrement: 5
+  leftSlantAngle: 10
+  rightSlantAngle: -10
+  sprintFovLerpSpeed: 10
+  longTimeToIdle: 10
+  lookSensitivity: 0.08
+  verticalLookLimit: {x: -89, y: 89}
+  criticalThreshold: {x: 10, y: 25}
+  highHpThreshold: {x: 1, y: 9}
+  sanMildThreshold: {x: 55, y: 75}
+  sanMediumThreshold: {x: 25, y: 54}
+  sanSevereThreshold: {x: 1, y: 24}
+  lightAttackAnimSpeed: 1
+  heavyAttackAnimSpeed: 1
+  proceduralBreathAmplitude: 0.02
+  proceduralBreathFrequency: 0.1
+  enableFpHandsMotion: 1
+  fpFollowSpeed: 14
+  fpLookSway:
+    Enabled: 0
+    InputLimit: 0.5
+    PositionStrength: {x: 0.01, y: 0.01, z: 0}
+    RotationStrength: {x: 0.01, y: 0.01, z: 0.01}
+  fpMoveSway:
+    Enabled: 0
+    InputLimit: 15
+    PositionStrength: {x: 0.004, y: 0.002, z: 0.003}
+    RotationStrength: {x: 0.12, y: 0.16, z: 0.2}
+  fpBob:
+    Enabled: 1
+    SpeedThreshold: 0.35
+    Frequency: 1.5
+    ReferenceSpeed: 10
+    PositionAmplitude: {x: 0.02, y: 0.03, z: 0.02}
+    RotationAmplitude: {x: 0.1, y: 0.1, z: 0.1}
+    CrouchWeight: 0.45
+    EmitFootstepEvents: 1

@@ -1,0 +1,65 @@
+{
+  "moduleName": "Weapon",
+  "platform": "StandaloneWindows64",
+  "sharedDependencyList": [
+    "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Materials/LowPolyWeapons_MAIN.mat",
+    "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Textures/Texture_01.png"
+  ],
+  "bundleList": [
+    {
+      "bundleName": "weapon_abconfig.abassetbundle",
+      "sizeBytes": 2618,
+      "assetList": [
+        "Assets/MieMieFrameTools/Scripts/Frame/B_Assets/MmAssetsMethod/MmAsset/Generated/weapon_AbConfig.json"
+      ]
+    },
+    {
+      "bundleName": "weapon_common.abassetbundle",
+      "sizeBytes": 118830,
+      "assetList": [
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Materials/LowPolyWeapons_MAIN.mat",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Textures/Texture_01.png"
+      ]
+    },
+    {
+      "bundleName": "weapon_weapon_onehand.abassetbundle",
+      "sizeBytes": 93288,
+      "assetList": [
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/ClawHammer_01.fbx",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/Crowbar_01.fbx",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/Machete_01.fbx",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/单手长柄类/尼泊尔刀_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/单手长柄类/撬棍_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/单手长柄类/榔头_Prefab.prefab"
+      ]
+    },
+    {
+      "bundleName": "weapon_weapon_small.abassetbundle",
+      "sizeBytes": 3123054,
+      "assetList": [
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/Knife_01.fbx",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/Knife_02.fbx",
+        "Assets/Arts/ExternalArts/末日城市与模型包/Materials/PolygonApocalypse_Material_01_A.mat",
+        "Assets/Arts/ExternalArts/末日城市与模型包/Models/SM_Wep_Melee_HuntingKnife_01.fbx",
+        "Assets/Arts/ExternalArts/末日城市与模型包/Textures/Misc/PolygonApocalypse_Emissive_01.png",
+        "Assets/Arts/ExternalArts/末日城市与模型包/Textures/Misc/PolygonApocalypse_Normal.png",
+        "Assets/Arts/ExternalArts/末日城市与模型包/Textures/PolygonApocalypse_Texture_01_A.png",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/小刀短柄类/小刀_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/小刀短柄类/普通军刀_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/小刀短柄类/锯齿军刀_Prefab.prefab"
+      ]
+    },
+    {
+      "bundleName": "weapon_weapon_twohand.abassetbundle",
+      "sizeBytes": 129264,
+      "assetList": [
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/Baseball_bat_01.fbx",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/Baseball_bat_02.fbx",
+        "Assets/Arts/ExternalArts/LowPolyModel/LowPolyWeaponsA/Models/HandWeapon/FireAx_01.fbx",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/双手类/带刺棒球棒_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/双手类/棒球棒_Prefab.prefab",
+        "Assets/Arts/InteranlArts/Prefabs/Items/Model/Weapon/双手类/消防斧_Prefab.prefab"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+<module name="location">
+
+	<bean name="Language" comment="本地化语言">
+		<var name="id" type="int" comment="语言ID"/>
+		<var name="code" type="string" comment="语言代码"/>
+		<var name="name" type="string" comment="语言显示名"/>
+		<var name="enabled" type="bool" comment="是否启用"/>
+		<var name="fallback_code" type="string" comment="回退语言代码"/>
+	</bean>
+
+	<bean name="Localization" comment="本地化文本 每行一个Key 每列一种语言">
+		<var name="id" type="int" comment="行ID"/>
+		<var name="module" type="string" comment="功能模块"/>
+		<var name="key" type="string" comment="文本Key"/>
+		<var name="comment" type="string" comment="翻译备注"/>
+		<var name="zh_cn" type="string" comment="简体中文"/>
+		<var name="en_us" type="string" comment="英语"/>
+		<var name="ja_jp" type="string" comment="日语"/>
+		<var name="ko_kr" type="string" comment="韩语"/>
+		<var name="fr_fr" type="string" comment="法语"/>
+	</bean>
+
+	<table name="TbLanguage" value="Language" index="id" input="Language@location/location.xlsx" comment="本地化语言表"/>
+	<table name="TbLocalization" value="Localization" index="id" input="Localization@location/location.xlsx" comment="本地化文本表"/>
+
+</module>

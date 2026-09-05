@@ -1,0 +1,141 @@
+<module name="item">
+
+	<enum name="EItemType" comment="物品大类 0装备1武器2材料3食物水分4药品5蓝图6家具">
+		<var name="Equipment" alias="装备" value="0" comment="装备"/>
+		<var name="Weapon" alias="武器" value="1" comment="武器"/>
+		<var name="Material" alias="材料" value="2" comment="材料"/>
+		<var name="FoodOrWater" alias="食物水分" value="3" comment="食物水分"/>
+		<var name="Medicine" alias="药品" value="4" comment="药品"/>
+		<var name="Blueprint" alias="蓝图" value="5" comment="蓝图"/>
+		<var name="Furniture" alias="家具" value="6" comment="家具"/>
+	</enum>
+
+	<enum name="EItemRarity" comment="物品稀有度 0白1绿2蓝3紫4金5红">
+		<var name="White" alias="白" value="0" comment="白"/>
+		<var name="Green" alias="绿" value="1" comment="绿"/>
+		<var name="Blue" alias="蓝" value="2" comment="蓝"/>
+		<var name="Purple" alias="紫" value="3" comment="紫"/>
+		<var name="Gold" alias="金" value="4" comment="金"/>
+		<var name="Red" alias="红" value="5" comment="红"/>
+	</enum>
+
+	<enum name="EItemStackType" comment="堆叠类型 0不可堆叠1可堆叠">
+		<var name="NoStackable" alias="不可堆叠" value="0" comment="不可堆叠"/>
+		<var name="Stackable" alias="可堆叠" value="1" comment="可堆叠"/>
+	</enum>
+
+	<enum name="EEquipSlot" comment="装备槽 0手持1背包2上衣3裤子4头部">
+		<var name="Hand" alias="手持" value="0" comment="手持"/>
+		<var name="Bag" alias="背包" value="1" comment="背包"/>
+		<var name="Torso" alias="上衣" value="2" comment="上衣"/>
+		<var name="Legs" alias="裤子" value="3" comment="裤子"/>
+		<var name="Head" alias="头部" value="4" comment="头部"/>
+	</enum>
+
+	<enum name="EWeaponName" comment="武器挂点名 与 WeaponConfig 字典 Key 一致">
+		<var name="None" alias="无" value="0" comment="无"/>
+		<var name="小刀" value="1" comment="小刀"/>
+		<var name="尼泊尔刀" value="2" comment="尼泊尔刀"/>
+		<var name="消防斧" value="3" comment="消防斧"/>
+		<var name="普通军刀" value="4" comment="普通军刀"/>
+		<var name="锯齿军刀" value="5" comment="锯齿军刀"/>
+		<var name="撬棍" value="6" comment="撬棍"/>
+		<var name="榔头" value="7" comment="榔头"/>
+		<var name="棒球棒" value="8" comment="棒球棒"/>
+		<var name="带刺棒球棒" value="9" comment="带刺棒球棒"/>
+		<var name="木头" value="10" comment="木头"/>
+		<var name="手电" value="11" comment="手电"/>
+	</enum>
+
+	<bean name="GridSize" valueType="1" sep="," comment="网格尺寸">
+		<var name="x" type="int"/>
+		<var name="y" type="int"/>
+	</bean>
+
+	<bean name="ItemCount" valueType="1" sep="," comment="物品ID与数量">
+		<var name="item_id" type="int" comment="物品ID"/>
+		<var name="count" type="int" comment="数量"/>
+	</bean>
+
+	<!-- 父类 公共字段 不单独成表 -->
+	<bean name="Item" comment="物品基类">
+		<var name="id" type="int" comment="物品ID"/>
+		<var name="name" type="string" comment="名称"/>
+		<var name="description" type="string" comment="描述"/>
+		<var name="icon_path" type="string" comment="图标路径 短名=assetAliasList注册 或 完整路径"/>
+		<var name="data_size" type="GridSize" comment="网格占用"/>
+		<var name="item_type" type="EItemType" comment="物品大类"/>
+		<var name="item_rarity" type="EItemRarity" comment="稀有度"/>
+		<var name="stack_type" type="EItemStackType" comment="堆叠类型"/>
+		<var name="max_stack_count" type="int" comment="最大堆叠"/>
+		<var name="max_durability" type="int" comment="最大耐久 无耐久填0"/>
+	</bean>
+
+	<bean name="Equipment" parent="Item" comment="装备">
+		<var name="world_prefab_path" type="string" comment="世界掉落拾取预制体 短名=assetAliasList注册"/>
+		<var name="equip_slot" type="EEquipSlot" comment="装备槽"/>
+		<var name="armor_value" type="int" comment="护甲值"/>
+		<var name="capacity" type="GridSize" comment="容器容量"/>
+	</bean>
+
+	<bean name="Weapon" parent="Item" comment="武器">
+		<var name="world_prefab_path" type="string" comment="世界掉落拾取预制体 短名=assetAliasList注册"/>
+		<var name="attack_value" type="int" comment="攻击力 枪械可填0"/>
+		<var name="weapon_name" type="EWeaponName" comment="挂点名 EWeaponName"/>
+		<var name="animation_type" type="int" comment="动画模组 对齐 EAnimationModelType 数值"/>
+		<var name="light_durability_loss" type="int" comment="轻攻击耐久消耗"/>
+		<var name="heavy_durability_loss" type="int" comment="重攻击耐久消耗"/>
+	</bean>
+
+	<bean name="FoodOrWater" parent="Item" comment="食物水分">
+		<var name="world_prefab_path" type="string" comment="世界掉落拾取预制体 短名=assetAliasList注册"/>
+		<var name="durability_loss" type="int" comment="单次标准损耗 无耐久填0"/>
+		<var name="spoil_seconds" type="int" comment="保质期秒 0为不腐烂"/>
+		<var name="decay_interval_seconds" type="int" comment="自然衰减间隔秒 每隔该秒扣1点耐久 0为不衰减"/>
+		<var name="add_food_value" type="int" comment="加减饱食度"/>
+		<var name="add_water_value" type="int" comment="加减水分"/>
+		<var name="add_san_value" type="int" comment="加减San"/>
+		<var name="utensil_prefab_path" type="string" comment="餐具Prefab 完整Assets路径 空则无餐具"/>
+		<var name="eat_anim_name" type="string" comment="FP食用动画状态名 须与FP Animator状态名一致"/>
+	</bean>
+
+	<bean name="Medicine" parent="Item" comment="药品">
+		<var name="world_prefab_path" type="string" comment="世界掉落拾取预制体 短名=assetAliasList注册"/>
+		<var name="durability_loss" type="int" comment="单次标准损耗 无耐久填0"/>
+		<var name="health_value" type="int" comment="加减血量"/>
+		<var name="add_san_value" type="int" comment="加减San"/>
+		<var name="use_anim_name" type="string" comment="FP用药动画状态名 须与FP Animator状态名一致"/>
+	</bean>
+
+	<bean name="Material" parent="Item" comment="材料">
+		<var name="world_prefab_path" type="string" comment="世界掉落拾取预制体 短名=assetAliasList注册"/>
+		<var name="durability_loss" type="int" comment="单次标准损耗 无耐久填0"/>
+	</bean>
+
+	<bean name="Blueprint" parent="Item" comment="蓝图 学习后解锁配方 消耗品">
+		<var name="world_prefab_path" type="string" comment="世界掉落拾取预制体 短名=assetAliasList注册"/>
+		<var name="durability_loss" type="int" comment="单次标准损耗 无耐久填0"/>
+		<var name="linked_recipe_id" type="int" comment="关联配方ID 详情展示用 0=反向查craft表"/>
+	</bean>
+
+	<bean name="Furniture" parent="Item" comment="家具 世界放置家具">
+		<var name="place_prefab_path" type="string" comment="放置与场景交互预制体 短名=assetAliasList注册"/>
+		<var name="break_drops" type="(list#sep=;),ItemCount" comment="破坏掉落 物品id,个数 如 2009,2;2002,1 空=不掉"/>
+	</bean>
+
+	<bean name="PlacedFurniture" parent="Furniture" comment="普通家具 无容量"/>
+
+	<bean name="StorageBox" parent="Furniture" comment="储物箱 带容量的家具">
+		<var name="capacity" type="GridSize" comment="容器容量"/>
+	</bean>
+
+	<table name="TbEquipment" value="Equipment" index="id" input="Equipment@item/item.xlsx" comment="装备表"/>
+	<table name="TbWeapon" value="Weapon" index="id" input="Weapon@item/item.xlsx" comment="武器表"/>
+	<table name="TbFoodOrWater" value="FoodOrWater" index="id" input="FoodOrWater@item/item.xlsx" comment="食物水分表"/>
+	<table name="TbMedicine" value="Medicine" index="id" input="Medicine@item/item.xlsx" comment="药品表"/>
+	<table name="TbMaterial" value="Material" index="id" input="Material@item/item.xlsx" comment="材料表"/>
+	<table name="TbBlueprint" value="Blueprint" index="id" input="Blueprint@item/item.xlsx" comment="蓝图表"/>
+	<table name="TbFurniture" value="PlacedFurniture" index="id" input="Furniture@item/item.xlsx" comment="家具表"/>
+	<table name="TbStorageBox" value="StorageBox" index="id" input="StorageBox@item/item.xlsx" comment="储物箱表"/>
+
+</module>

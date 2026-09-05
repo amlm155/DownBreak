@@ -1,0 +1,387 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a34c0e926c4254a9ee5be247a5d0b6, type: 3}
+  m_Name: WeaponConfig
+  m_EditorClassIdentifier: Assembly-CSharp::DBWeaponSystem.WeaponConfig
+  rightHandPosConfigDict:
+  - weaponName: 1
+    animationType: 1
+    config:
+      position: {x: 0.123, y: 0.024, z: -0.04}
+      eulerAngles: {x: 359.99106, y: 179.31589, z: 229.1734}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.7
+      sampleSource: {fileID: 0}
+  - weaponName: 4
+    animationType: 1
+    config:
+      position: {x: 0.079, y: 0.029, z: -0.04}
+      eulerAngles: {x: 305.16507, y: 262.49817, z: 105.61862}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 1
+      sampleSource: {fileID: 0}
+  - weaponName: 5
+    animationType: 1
+    config:
+      position: {x: 0.106, y: 0.025, z: -0.046}
+      eulerAngles: {x: 308.69458, y: 265.65796, z: 86.70916}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 1
+      sampleSource: {fileID: 0}
+  - weaponName: 11
+    animationType: 1
+    config:
+      position: {x: 0.118, y: 0.039, z: -0.035}
+      eulerAngles: {x: 338.40878, y: 89.432335, z: 229.922}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 1
+      sampleSource: {fileID: 0}
+  - weaponName: 2
+    animationType: 2
+    config:
+      position: {x: 0.103, y: 0.028, z: -0.051}
+      eulerAngles: {x: 274.0284, y: 147.87749, z: 206.93224}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.6
+      sampleSource: {fileID: 0}
+  - weaponName: 6
+    animationType: 2
+    config:
+      position: {x: 0.086, y: 0.017, z: -0.065}
+      eulerAngles: {x: 292.12238, y: 184.24039, z: 168.87099}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.05
+      sampleSource: {fileID: 0}
+  - weaponName: 7
+    animationType: 2
+    config:
+      position: {x: 0.1, y: -0.005, z: -0.131}
+      eulerAngles: {x: 294.44666, y: 219.6878, z: 136.95714}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.6
+      sampleSource: {fileID: 0}
+  - weaponName: 10
+    animationType: 2
+    config:
+      position: {x: 0.052, y: 0.037, z: -0.006}
+      eulerAngles: {x: 337.80194, y: 75.32017, z: 257.61746}
+      scale: {x: 0.16, y: 0.16, z: 0.16}
+      scanRadius: 0.2
+      distancePadding: 0.1
+      sampleSource: {fileID: 0}
+  - weaponName: 3
+    animationType: 3
+    config:
+      position: {x: 0.103, y: -0.022, z: 0.019}
+      eulerAngles: {x: 290.99365, y: 23.615868, z: 347.9873}
+      scale: {x: 0.8, y: 0.8, z: 0.8}
+      scanRadius: 0.3
+      distancePadding: 0.5
+      sampleSource: {fileID: 0}
+  - weaponName: 8
+    animationType: 3
+    config:
+      position: {x: 0.094, y: 0.094, z: 0.043}
+      eulerAngles: {x: 299.34943, y: 91.95754, z: 255.10153}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 1
+      sampleSource: {fileID: 0}
+  - weaponName: 9
+    animationType: 3
+    config:
+      position: {x: 0.088, y: 0.016, z: -0.005}
+      eulerAngles: {x: 299.3494, y: 91.957535, z: 255.1015}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 1
+      sampleSource: {fileID: 0}
+  leftHandPropPosConfigDict: []
+  foodOrWaterPosConfigDict:
+  - itemTableId: 3001
+    displayName: "\u6C99\u4E01\u9C7C\u7F50\u5934"
+    foodConfig:
+      position: {x: -0.129, y: -0.045, z: -0.004}
+      eulerAngles: {x: 13.234757, y: 2.561853, z: 191.05803}
+      scale: {x: 1.2, y: 1.2, z: 1.2}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0.084, y: 0.044, z: 0.014}
+      eulerAngles: {x: 274.76215, y: 351.09546, z: 11.873565}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3002
+    displayName: "\u5DE7\u514B\u529B"
+    foodConfig:
+      position: {x: -0.123, y: -0.053, z: -0.001}
+      eulerAngles: {x: 54.33497, y: 122.16238, z: 110.51623}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3003
+    displayName: "\u8106\u8106\u9CA8"
+    foodConfig:
+      position: {x: -0.123, y: -0.053, z: -0.001}
+      eulerAngles: {x: 54.33497, y: 122.16238, z: 110.51623}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3004
+    displayName: "\u9165\u8106\u68D2"
+    foodConfig:
+      position: {x: -0.123, y: -0.053, z: -0.001}
+      eulerAngles: {x: 54.33497, y: 122.16238, z: 110.51623}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3005
+    displayName: "\u901F\u98DF\u7CA5"
+    foodConfig:
+      position: {x: -0.129, y: -0.045, z: -0.004}
+      eulerAngles: {x: 13.234757, y: 2.561853, z: 191.05803}
+      scale: {x: 1.2, y: 1.2, z: 1.2}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0.084, y: 0.044, z: 0.014}
+      eulerAngles: {x: 274.76215, y: 351.09546, z: 11.873565}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3006
+    displayName: "\u901F\u98DF\u4E38\u5B50"
+    foodConfig:
+      position: {x: -0.129, y: -0.045, z: -0.004}
+      eulerAngles: {x: 13.234757, y: 2.561853, z: 191.05803}
+      scale: {x: 1.2, y: 1.2, z: 1.2}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0.084, y: 0.044, z: 0.014}
+      eulerAngles: {x: 274.76215, y: 351.09546, z: 11.873565}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3007
+    displayName: "\u9E21\u817F"
+    foodConfig:
+      position: {x: -0.141, y: -0.064, z: 0.081}
+      eulerAngles: {x: 47.028385, y: 84.33732, z: 117.080864}
+      scale: {x: 1.5, y: 1.5, z: 1.5}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3008
+    displayName: "\u82F9\u679C\u5473\u96EA\u78A7"
+    foodConfig:
+      position: {x: -0.053, y: -0.101, z: -0.042}
+      eulerAngles: {x: 350.96042, y: 55.54904, z: 63.01139}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3009
+    displayName: "\u8584\u8377\u5473\u96EA\u78A7"
+    foodConfig:
+      position: {x: -0.053, y: -0.101, z: -0.042}
+      eulerAngles: {x: 350.96042, y: 55.54904, z: 63.01139}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3010
+    displayName: "\u96F7\u9706\u5473\u96EA\u78A7"
+    foodConfig:
+      position: {x: -0.053, y: -0.101, z: -0.042}
+      eulerAngles: {x: 350.96042, y: 55.54904, z: 63.01139}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3011
+    displayName: "\u68D5\u8272\u6447\u6447\u676F"
+    foodConfig:
+      position: {x: -0.053, y: -0.101, z: -0.042}
+      eulerAngles: {x: 350.96042, y: 55.54904, z: 63.01139}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3012
+    displayName: "\u7EFF\u8272\u6447\u6447\u676F"
+    foodConfig:
+      position: {x: -0.053, y: -0.101, z: -0.042}
+      eulerAngles: {x: 350.96042, y: 55.54904, z: 63.01139}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3013
+    displayName: "\u84DD\u8272\u6447\u6447\u676F"
+    foodConfig:
+      position: {x: -0.053, y: -0.101, z: -0.042}
+      eulerAngles: {x: 350.96042, y: 55.54904, z: 63.01139}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3014
+    displayName: "\u5C71\u5564"
+    foodConfig:
+      position: {x: -0.079, y: -0.042, z: -0.063}
+      eulerAngles: {x: 29.63543, y: 51.644684, z: 82.67802}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 3015
+    displayName: "\u9752\u5C9B"
+    foodConfig:
+      position: {x: -0.079, y: -0.042, z: -0.063}
+      eulerAngles: {x: 29.63543, y: 51.644684, z: 82.67802}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+    utensilConfig:
+      position: {x: 0, y: 0, z: 0}
+      eulerAngles: {x: 0, y: 0, z: 0}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  medicinePosConfigDict:
+  - itemTableId: 4001
+    displayName: "\u6CE8\u5C04\u67AA1\u53F7"
+    handSide: 1
+    bodyConfig:
+      position: {x: 0.107059866, y: 0.012995034, z: 0.049239278}
+      eulerAngles: {x: 307.6954, y: 63.630093, z: 298.57587}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 4002
+    displayName: "\u666E\u901A\u7CBE\u795E\u9488\u5242"
+    handSide: 1
+    bodyConfig:
+      position: {x: 0.126, y: 0.035, z: 0.114}
+      eulerAngles: {x: 312.60867, y: 278.03802, z: 95.018875}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}
+  - itemTableId: 4003
+    displayName: "\u5F3A\u6548\u53CC\u56DE\u9488\u5242"
+    handSide: 1
+    bodyConfig:
+      position: {x: 0.188, y: 0.103, z: -0.053}
+      eulerAngles: {x: 340.8502, y: 38.133907, z: 129.01698}
+      scale: {x: 1, y: 1, z: 1}
+      scanRadius: 0.2
+      distancePadding: 0.02
+      sampleSource: {fileID: 0}

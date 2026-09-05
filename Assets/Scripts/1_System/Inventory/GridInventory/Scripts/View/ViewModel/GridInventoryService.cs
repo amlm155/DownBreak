@@ -1,0 +1,634 @@
+﻿using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using cfg.item;
+using DBGameSystem;
+
+namespace MmInventory
+{
+
+    #region 操作报告
+
+    /// <summary>
+    /// 操作结果结构体
+    /// </summary>
+    public readonly struct InventoryOpReport
+    {
+        /// <summary> 是否操作成功 </summary>
+        public readonly bool IsSuccess;
+
+        /// <summary> 被拖拽物A </summary>
+        public readonly ItemRtData ItemDataA;
+
+        /// <summary> 被交换物B </summary>
+        public readonly ItemRtData ItemDataB;
+
+        /// <summary> 交换时被挤开的物品列表 </summary>
+        public readonly List<ItemRtData> DisplacedItemDataList;
+
+        /// <summary> 交换类型 </summary>
+        public readonly ESwapState SwapState;
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        public InventoryOpReport(bool isSuccess,
+                                 ItemRtData itemDataA,
+                                 ItemRtData itemDataB = null,
+                                 List<ItemRtData> displacedItemDataList = null,
+                                 ESwapState swapState = ESwapState.CanNotSwap)
+        {
+            IsSuccess = isSuccess;
+            ItemDataA = itemDataA;
+            ItemDataB = itemDataB;
+            DisplacedItemDataList = displacedItemDataList;
+            SwapState = swapState;
+        }
+    }
+
+    #endregion
+
+    /// <summary>
+    /// 此类的职责是 充当算法层与View层之间的桥梁
+    /// 算法层只是负责算数据 返回bool 和 位置
+    /// 但View层需要知道操作是否成功 并且做出对应的表现
+    /// 所以二者之间需要一个桥梁来传递信息,不然直接让View层调用算法层会显得很乱(真的很乱别问我怎么知道的)
+    /// </summary>
+    public class GridInventoryService
+    {
+        private InventoryState currentInventoryState;
+
+        /// <summary> 扫描锚点物品临时列表 </summary>
+        private readonly List<IItemRuntime> tempCollectItemList = new();
+
+        /// <summary> 当前网格尺寸 </summary>
+        public Vector2Int GridSize => currentInventoryState?.GridSize ?? Vector2Int.zero;
+
+        /// <summary>
+        /// new一个InventoryState数据层
+        /// </summary>
+        public void Init(Vector2Int gridSize)
+        {
+            currentInventoryState = new InventoryState(gridSize);
+        }
+
+        #region 创建与销毁
+
+        /// <summary>
+        /// 创建物品数据并占格
+        /// </summary>
+        public ItemRtData CreatItem(int excelItemId, Vector2Int anchorPos)
+        {
+            // 获取模版数据
+            var itemData = ResolveItemTableData(excelItemId);
+            if (itemData is null)
+            {
+                Debug.Log($"创建物品失败 没有找到模版为ID:{excelItemId}的物品");
+                return null;
+            }
+
+            // 创建运行时数据
+            var itemRtData = ItemRtData.ItemTableData2ItemRtData(itemData);
+
+            // 尝试放到指定锚点
+            if (!SetAnchorAndPlaceItem(itemRtData, anchorPos))
+            {
+                // 该位置已存在物品 尝试放置到第一个可放置位置 锚点由数据层同步
+                if (!currentInventoryState.SetAtFirst(itemRtData, out _))
+                {
+                    Debug.Log("创建物品失败 没有找到可放置位置");
+                    return null;
+                }
+            }
+
+            return itemRtData;
+        }
+
+        /// <summary>
+        /// 创建物品并放到首个空位
+        /// </summary>
+        public ItemRtData CreatItemAtFirstEmpty(int excelItemId)
+        {
+            return CreatItemAtFirstEmpty(excelItemId, 1);
+        }
+
+        /// <summary>
+        /// 创建物品并放到首个空位 指定堆叠数
+        /// </summary>
+        public ItemRtData CreatItemAtFirstEmpty(int excelItemId, int stackCount)
+        {
+            // 获取模版数据
+            var itemData = ResolveItemTableData(excelItemId);
+            if (itemData is null)
+            {
+                Debug.Log($"创建物品失败 没有找到模版为ID:{excelItemId}的物品");
+                return null;
+            }
+
+            int clampedStack = stackCount;
+            if (itemData.ItemStackType == EItemStackType.NoStackable)
+                clampedStack = 1;
+            else
+                clampedStack = Mathf.Clamp(stackCount, 1, Mathf.Max(1, itemData.MaxStackCount));
+
+            // 创建运行时数据 锚点由数据层同步
+            var itemRtData = ItemRtData.ItemTableData2ItemRtData(itemData, clampedStack);
+            if (currentInventoryState is null)
+            {
+                Debug.Log("创建物品失败 背包逻辑未初始化");
+                return null;
+            }
+
+            if (!currentInventoryState.SetAtFirst(itemRtData, out _))
+            {
+                Debug.Log("创建物品失败 没有找到可放置位置");
+                return null;
+            }
+
+            return itemRtData;
+        }
+
+        /// <summary>
+        /// 创建物品并放到随机可放置空位 指定堆叠数
+        /// </summary>
+        public ItemRtData CreatItemAtRandomEmpty(int excelItemId, int stackCount)
+        {
+            var itemData = ResolveItemTableData(excelItemId);
+            if (itemData is null)
+            {
+                Debug.Log($"创建物品失败 没有找到模版为ID:{excelItemId}的物品");
+                return null;
+            }
+
+            int clampedStack = stackCount;
+            if (itemData.ItemStackType == EItemStackType.NoStackable)
+                clampedStack = 1;
+            else
+                clampedStack = Mathf.Clamp(stackCount, 1, Mathf.Max(1, itemData.MaxStackCount));
+
+            var itemRtData = ItemRtData.ItemTableData2ItemRtData(itemData, clampedStack);
+            if (currentInventoryState is null)
+            {
+                Debug.Log("创建物品失败 背包逻辑未初始化");
+                return null;
+            }
+
+            if (!currentInventoryState.SetAtRandom(itemRtData, out _))
+            {
+                Debug.Log("创建物品失败 没有找到可放置位置");
+                return null;
+            }
+
+            return itemRtData;
+        }
+
+        /// <summary>
+        /// 解析物品模版 优先运行时管理器 其次 Luban 表
+        /// </summary>
+        private static IItemTableData ResolveItemTableData(int excelItemId)
+        {
+            if (GameHub.Get<IInventory>() != null)
+            {
+                var runtimeData = GameHub.Get<IInventory>().GetItemData<IItemTableData>(excelItemId);
+                if (runtimeData != null)
+                    return runtimeData;
+            }
+
+            if (LubanTables.TryGetItem(excelItemId, out var itemTableData))
+                return itemTableData;
+
+            return null;
+        }
+
+        /// <summary>
+        /// 尝试移除物品(数据层)
+        /// </summary>
+        public InventoryOpReport TryRemoveItem(Vector2Int anchorPos)
+        {
+            var item = currentInventoryState.GetItemByMask(anchorPos) as ItemRtData;
+            if (item is null || !currentInventoryState.RemoveAtAny(anchorPos))
+                return new InventoryOpReport(false, null);
+
+            return new InventoryOpReport(true, item);
+        }
+
+        /// <summary>
+        /// 将已有运行时物品放入首个空位 可自动旋转
+        /// </summary>
+        public bool TryPlaceExistingAtFirst(ItemRtData itemRtData)
+        {
+            if (currentInventoryState is null || itemRtData is null)
+                return false;
+
+            return currentInventoryState.SetAtFirstWithRotate(itemRtData, out _);
+        }
+
+        /// <summary>
+        /// 拆分堆叠 成功时 newItem 已占格
+        /// </summary>
+        public bool TrySplit(ItemRtData itemRtData, int splitCount, out ItemRtData newItem)
+        {
+            newItem = null;
+            if (currentInventoryState is null || itemRtData is null)
+                return false;
+
+            if (!currentInventoryState.TrySplit(itemRtData, splitCount, out var splitItem))
+                return false;
+
+            newItem = splitItem as ItemRtData;
+            return newItem != null;
+        }
+
+        #endregion
+
+        #region 放置 - 跨容器
+
+        /// <summary>
+        /// 跨容器放置 委托 Core 双背包协调
+        /// </summary>
+        /// <param name="targetService">落点容器 Service</param>
+        /// <param name="dragItem">被拖拽物</param>
+        /// <param name="sourceAnchor">A 侧拖起锚点</param>
+        /// <param name="dropAnchor">B 侧预览落点</param>
+        /// <returns>操作结果</returns>
+        public InventoryOpReport TryCrossContainerDrop(GridInventoryService targetService,
+                                                       ItemRtData dragItem,
+                                                       Vector2Int sourceAnchor,
+                                                       Vector2Int dropAnchor)
+        {
+            // 源 Service 持有的 currentInventoryState 作为 A 落点 Service 的 state 作为 B
+            var coreResult = currentInventoryState.TryCrossContainerDrop(
+                targetService.currentInventoryState,
+                dragItem,
+                sourceAnchor,
+                dropAnchor);
+
+            return ToOpReport(coreResult);
+        }
+
+        #endregion
+
+        #region 放置 - 快捷互转
+
+        /// <summary>
+        /// 快捷移动到目标容器
+        /// </summary>
+        public QuickMoveOpResult TryQuickMoveTo(GridInventoryService targetService, ItemRtData itemData)
+        {
+            if (targetService is null || itemData is null)
+                return QuickMoveOpResult.Fail();
+
+            return currentInventoryState.TryQuickMoveTo(targetService.currentInventoryState, itemData);
+        }
+
+        #endregion
+
+        #region 放置 - 同容器
+
+        /// <summary>
+        /// 尝试放置物品
+        /// </summary>
+        public InventoryOpReport TryPlaceItem(ItemRtData itemDataA,
+                                              Vector2Int anchorPosA,
+                                              Vector2Int anchorPosB)
+        {
+            if (itemDataA is null)
+                return new InventoryOpReport(false, null);
+
+            void RestoreItemA() => SetAnchorAndPlaceItem(itemDataA, anchorPosA);
+
+            // 直接放
+            if (currentInventoryState.CanPlace(itemDataA, anchorPosB))
+            {
+                if (!SetAnchorAndPlaceItem(itemDataA, anchorPosB))
+                {
+                    RestoreItemA();
+                    return new InventoryOpReport(false, itemDataA);
+                }
+                return new InventoryOpReport(true, itemDataA);
+            }
+
+            var itemDataB = currentInventoryState.GetItemByMask(anchorPosB) as ItemRtData;
+
+            // 尝试堆叠
+            if (itemDataB is not null
+                && currentInventoryState.CanStack(itemDataA, itemDataB)
+                && currentInventoryState.TryStack(itemDataA, itemDataB))
+            {
+                if (itemDataA.CurrStackCount > 0)
+                    RestoreItemA();
+
+                var remainingItemDataA = itemDataA.CurrStackCount > 0 ? itemDataA : null;
+                return new InventoryOpReport(true, remainingItemDataA, itemDataB);
+            }
+
+            // 尝试交换 TrySwap 失败时内部自行回滚 无需预演
+            if (currentInventoryState.TryGetSwapTargetItem(itemDataA, anchorPosB, out var swapTargetItem))
+            {
+                var swapDisplacedList = new List<IItemRuntime>();
+                var swapState = currentInventoryState.GetSwapState(itemDataA, swapTargetItem);
+                if (currentInventoryState.TrySwap(itemDataA,
+                                           swapTargetItem,
+                                           swapDisplacedList,
+                                           anchorPosB))
+                {
+                    return new InventoryOpReport(true,
+                                                 itemDataA,
+                                                 swapTargetItem as ItemRtData,
+                                                 ToItemRtDataList(swapDisplacedList),
+                                                 swapState);
+                }
+
+                // 交换失败 数据层已自行回滚 这里把拖起的 A 放回原位
+                RestoreItemA();
+                return new InventoryOpReport(false, itemDataA, swapTargetItem as ItemRtData, swapState: swapState);
+            }
+
+            // 全部尝试失败 回滚状态
+            RestoreItemA();
+            return new InventoryOpReport(false, itemDataA);
+        }
+
+        /// <summary>
+        /// 查找背包首个空位并放置
+        /// </summary>
+        public bool TryPlaceAtFirst(ItemRtData itemData)
+        {
+            if (itemData is null)
+                return false;
+            // 锚点由数据层同步
+            return currentInventoryState.SetAtFirst(itemData, out _);
+        }
+
+        /// <summary>
+        /// 按表 ID 新建实例后先堆叠再找空位
+        /// </summary>
+        public bool TryAddStackThenFirst(int excelItemId,
+                                         int stackCount,
+                                         out ItemRtData placedItem,
+                                         out List<ItemRtData> stackedTargetList)
+        {
+            placedItem = null;
+            stackedTargetList = new List<ItemRtData>();
+
+            var itemTableData = ResolveItemTableData(excelItemId);
+            if (itemTableData is null)
+                return false;
+
+            int clampedStack = stackCount;
+            if (itemTableData.ItemStackType == EItemStackType.NoStackable)
+                clampedStack = 1;
+            else
+                clampedStack = Mathf.Clamp(stackCount, 1, Mathf.Max(1, itemTableData.MaxStackCount));
+
+            var incoming = ItemRtData.ItemTableData2ItemRtData(itemTableData, clampedStack);
+            return TryAddStackThenFirst(incoming, out placedItem, out stackedTargetList);
+        }
+
+        /// <summary>
+        /// 已有实例先堆叠再找空位 全部放完才算成功 失败回滚堆叠
+        /// </summary>
+        public bool TryAddStackThenFirst(ItemRtData incoming,
+                                         out ItemRtData placedItem,
+                                         out List<ItemRtData> stackedTargetList)
+        {
+            placedItem = null;
+            stackedTargetList = new List<ItemRtData>();
+
+            if (currentInventoryState is null || incoming is null)
+                return false;
+
+            var mergeLogList = new List<(ItemRtData target, int amount)>();
+
+            currentInventoryState.CollectAnchorItems(tempCollectItemList);
+            for (int i = 0; i < tempCollectItemList.Count; i++)
+            {
+                if (incoming.CurrStackCount <= 0)
+                    break;
+
+                var candidate = tempCollectItemList[i] as ItemRtData;
+                if (candidate is null)
+                    continue;
+                if (!currentInventoryState.CanStack(incoming, candidate))
+                    continue;
+
+                int beforeCount = incoming.CurrStackCount;
+                if (!currentInventoryState.TryStack(incoming, candidate))
+                    continue;
+
+                int merged = beforeCount - incoming.CurrStackCount;
+                if (merged <= 0)
+                    continue;
+
+                mergeLogList.Add((candidate, merged));
+                if (!stackedTargetList.Contains(candidate))
+                    stackedTargetList.Add(candidate);
+            }
+
+            if (incoming.CurrStackCount <= 0)
+                return true;
+
+            if (currentInventoryState.SetAtFirstWithRotate(incoming, out _))
+            {
+                placedItem = incoming;
+                return true;
+            }
+
+            // 空位失败 回滚堆叠
+            for (int i = 0; i < mergeLogList.Count; i++)
+            {
+                var eMerge = mergeLogList[i];
+                eMerge.target.CurrStackCount -= eMerge.amount;
+                incoming.CurrStackCount += eMerge.amount;
+            }
+
+            stackedTargetList.Clear();
+            return false;
+        }
+
+        #endregion
+
+
+        #region 查询
+
+        /// <summary>
+        /// 获取任意格上的物品
+        /// </summary>
+        public ItemRtData GetItemAt(Vector2Int anyPos)
+        {
+            return currentInventoryState.GetItemByMask(anyPos) as ItemRtData;
+        }
+
+        #endregion
+
+        #region 旋转
+
+        /// <summary>
+        /// 尝试旋转物品
+        /// 这里只是转变数据状态 不影响实际物品的旋转
+        /// </summary>
+        public InventoryOpReport TryRotateItem(ItemRtData itemData)
+        {
+            if (itemData is null)
+                return new InventoryOpReport(false, null);
+
+            var originData = GameHub.Get<IInventory>().GetItemData<IItemTableData>(itemData.ExcelItemId);
+
+            // 可叠加物品不允许旋转
+            if (originData is not null && originData.ItemStackType == EItemStackType.Stackable)
+                return new InventoryOpReport(false, itemData);
+
+            itemData.SetRotated(!itemData.IsRotated);
+            return new InventoryOpReport(true, itemData);
+        }
+
+        #endregion
+
+        #region 预览判定
+
+        /// <summary>
+        /// 判定拖拽落点预览状态
+        /// </summary>
+        public EDragPreviewState JudgeDragPreviewState(ItemRtData itemDataA,
+                                                       ItemRtData itemDataB,
+                                                       Vector2Int dragPreviewAnchorPos,
+                                                       ESwapPlaceMode swapPlaceMode = ESwapPlaceMode.SameContainer)
+        {
+            if (currentInventoryState.CanPlace(itemDataA, dragPreviewAnchorPos))
+                return EDragPreviewState.CanPlace;
+
+            if (itemDataB is not null && currentInventoryState.CanStack(itemDataA, itemDataB))
+                return EDragPreviewState.CanStack;
+
+            if (currentInventoryState.TryGetSwapTargetItem(itemDataA, dragPreviewAnchorPos, out var swapTargetItem) &&
+                currentInventoryState.CanSwap(itemDataA,
+                                       swapTargetItem,
+                                       dragPreviewAnchorPos,
+                                       swapPlaceMode))
+                return EDragPreviewState.CanPlaceSwap;
+
+            return EDragPreviewState.CannotPlace;
+        }
+
+        #endregion
+
+        #region 工具
+
+        /// <summary>
+        /// 设置锚点并占用格子
+        /// 锚点由数据层 SetItemData 统一同步 此处不再手动写入
+        /// </summary>
+        public bool SetAnchorAndPlaceItem(ItemRtData itemData, Vector2Int anchorPos)
+        {
+            if (itemData is null)
+                return false;
+
+            return currentInventoryState.SetAt(anchorPos, itemData);
+        }
+
+        /// <summary>
+        /// Core 跨容器结果转 View 操作报告
+        /// </summary>
+        private static InventoryOpReport ToOpReport(CrossContainerOpResult coreResult)
+        {
+            return new InventoryOpReport(
+                coreResult.IsSuccess,
+                coreResult.ItemDataA as ItemRtData,
+                coreResult.ItemDataB as ItemRtData,
+                ToItemRtDataList(coreResult.DisplacedItemDataList),
+                coreResult.SwapState);
+        }
+
+        /// <summary>
+        /// IGridItem列表转ItemRtData列表
+        /// </summary>
+        private static List<ItemRtData> ToItemRtDataList(List<IItemRuntime> gridItemList)
+        {
+            if (gridItemList is null)
+                return null;
+
+            var itemRtDataList = new List<ItemRtData>(gridItemList.Count);
+            for (int i = 0; i < gridItemList.Count; i++)
+                itemRtDataList.Add((ItemRtData)gridItemList[i]);
+            return itemRtDataList;
+        }
+
+        #endregion
+
+        #region 存档
+
+        /// <summary>
+        /// 是否存在指定容器存档
+        /// </summary>
+        public static bool HasSaveFile(int containerId)
+        {
+            string path = GetSaveFilePath(containerId);
+            return File.Exists(path);
+        }
+
+        /// <summary>
+        /// 删除指定容器存档
+        /// </summary>
+        public static bool TryDeleteSaveFile(int containerId)
+        {
+            string path = GetSaveFilePath(containerId);
+            if (!File.Exists(path))
+                return false;
+
+            File.Delete(path);
+            return true;
+        }
+
+        /// <summary>
+        /// 存档路径
+        /// </summary>
+        public static string GetSaveFilePath(int containerId)
+        {
+            return Path.Combine(
+                Application.persistentDataPath,
+                $"inventory_{containerId}.json");
+        }
+
+        /// <summary>
+        /// 读取存档并替换当前逻辑层
+        /// </summary>
+        public bool TryLoadInventory(int containerId)
+        {
+            var loadedState = InventoryState.Load(containerId);
+            if (loadedState is null)
+                return false;
+
+            currentInventoryState = loadedState;
+            return true;
+        }
+
+        /// <summary>
+        /// 保存当前逻辑层到磁盘
+        /// </summary>
+        public bool TrySaveInventory(int containerId)
+        {
+            if (currentInventoryState is null)
+                return false;
+
+            currentInventoryState.Save(containerId);
+            return true;
+        }
+
+        /// <summary>
+        /// 获取当前容器全部物品运行时数据
+        /// </summary>
+        public List<ItemRtData> GetAllItemRtDataList()
+        {
+            var itemRtDataList = new List<ItemRtData>();
+            if (currentInventoryState is null)
+                return itemRtDataList;
+
+            currentInventoryState.CollectAnchorItems(tempCollectItemList);
+            for (int i = 0; i < tempCollectItemList.Count; i++)
+                itemRtDataList.Add((ItemRtData)tempCollectItemList[i]);
+            return itemRtDataList;
+        }
+
+        #endregion
+    }
+}

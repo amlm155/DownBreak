@@ -1,0 +1,62 @@
+[
+  {
+    "id": 4001,
+    "name": "普通治疗针剂",
+    "description": "痛痛飞走咯",
+    "icon_path": "注射枪1号图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 4,
+    "item_rarity": 2,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "注射枪1号",
+    "durability_loss": 1,
+    "health_value": 20,
+    "add_san_value": 0,
+    "use_anim_name": "注射_注射器01_使用"
+  },
+  {
+    "id": 4002,
+    "name": "普通精神针剂",
+    "description": "精神爽",
+    "icon_path": "注射针管1号图标",
+    "data_size": {
+      "x": 1,
+      "y": 2
+    },
+    "item_type": 4,
+    "item_rarity": 3,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "注射针管1号",
+    "durability_loss": 1,
+    "health_value": 0,
+    "add_san_value": 20,
+    "use_anim_name": "注射_注射器02_使用"
+  },
+  {
+    "id": 4003,
+    "name": "强效双回针剂",
+    "description": "嗨翻了",
+    "icon_path": "异形注射枪1号图标",
+    "data_size": {
+      "x": 2,
+      "y": 2
+    },
+    "item_type": 4,
+    "item_rarity": 4,
+    "stack_type": 0,
+    "max_stack_count": 1,
+    "max_durability": 100,
+    "world_prefab_path": "异形注射枪1号",
+    "durability_loss": 5,
+    "health_value": 40,
+    "add_san_value": 40,
+    "use_anim_name": "注射_注射器03_使用"
+  }
+]
