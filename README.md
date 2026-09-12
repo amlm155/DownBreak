@@ -108,7 +108,7 @@ DownBreak 是一款**第一人称生存沙盒**的游戏原型。玩家在程序
 - **`InteriorColliderEditorWindow`** — 内部碰撞体编辑器:逐网格查看 / 生成贴合 `BoxCollider` 或 `MeshCollider`,让内部采样能打到内腔面,并为摆进去的物品提供物理承托
 - **`ItemPlacementAnchor`**(运行时组件)— 锚点数据 + 场景 Gizmo 可视化,附带一键生成"承托碰撞体"(薄 `BoxCollider`,顶面与锚点面重合)
 
-文档:[`Docs/工具文档/物品摆放工具.md`](Docs/工具文档/物品摆放工具.md) · [`Docs/工具文档/内部碰撞体编辑器.md`](Docs/工具文档/内部碰撞体编辑器.md)
+文档:[`Docs/工具文档/物品摆放工具.md`](Docs/工具文档/物品摆放工具.md) · [`Docs/工具文档/内部碰撞体编辑器.md`](Docs/工具文档/内部碰撞体编辑器.md) · [`Docs/工具文档/物品摆放工具-设计说明.md`](Docs/工具文档/物品摆放工具-设计说明.md)
 
 ---
 
