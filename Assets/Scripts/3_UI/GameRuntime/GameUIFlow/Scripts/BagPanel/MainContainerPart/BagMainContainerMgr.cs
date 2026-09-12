@@ -307,13 +307,16 @@ namespace MieMieUIFrameWork.Runtime
 
         /// <summary>
         /// 关闭搜刮栏并把当前格子写回对应世界容器
+        /// 关闭背包与打开背包时都会调用 保证容器栏不会残留到下一次打开
         /// </summary>
         public void HideSearchAndClearActive()
         {
+            // 先收起容器栏 即使写回过程异常也不会把容器 UI 留在背包里
             GetSearchRevealMask()?.HideImmediate();
-            FlushCurrentSearchToOwner();
             if (searchGroup != null)
                 searchGroup.gameObject.SetActive(false);
+
+            FlushCurrentSearchToOwner();
             GridMainContainerManager.ClearActiveContainer();
             currentSearchOwner = null;
         }
@@ -410,6 +413,9 @@ namespace MieMieUIFrameWork.Runtime
         {
             if (searchGroup == null)
                 return;
+
+            // 容器栏初始必须关闭 只能由交互打开 不能依赖预制体上的激活状态
+            searchGroup.gameObject.SetActive(false);
 
             var searchView = searchGroup.GridView;
             if (searchView == null)

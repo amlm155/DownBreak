@@ -1,4 +1,4 @@
-﻿/// <summary>
+/// <summary>
 /// BagPanel Logic层 - 生命周期与投放区绑定
 /// </summary>
 
@@ -75,10 +75,13 @@ namespace MieMieUIFrameWork.Runtime
             View.isOpen = true;
             View.ItemInfoMenuItemInfoMenu?.gameObject.SetActive(true);
 
+            // 背包打开时先收起上一次遗留的搜刮容器栏
+            // 容器栏只能由交互(F 搜索/开箱)重新打开 不允许跟着背包一起被打开
+            containerHost?.HideSearchAndClearActive();
+
             SyncEquippedWeaponFromSystem();
             RefreshWeaponIcon();
             containerHost?.RefreshOrder();
-            containerHost?.ResumeSearch();
             View.ModelRectModelHotspot?.SetPanelOpen(true);
             modelPreview?.BeginPreview();
             UIHub.Instance.HideWindow<PlayerPanel>();
@@ -92,11 +95,13 @@ namespace MieMieUIFrameWork.Runtime
             View.ModelRectModelHotspot?.SetPanelOpen(false);
             CursorController.Lock();
 
+            // 先收起搜刮容器栏再收拾其它表现 避免后续步骤异常导致容器栏残留
+            containerHost?.HideSearchAndClearActive();
+
             modelPreview?.EndPreview();
             stackFlow?.Hide();
             HideItemMenu();
             View.ItemInfoMenuItemInfoMenu?.Hide();
-            containerHost?.PauseSearch();
         }
 
         /// <summary>
