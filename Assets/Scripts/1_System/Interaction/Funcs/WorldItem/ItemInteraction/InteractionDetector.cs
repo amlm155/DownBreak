@@ -30,8 +30,9 @@ namespace Interaction
 
         /// <summary>
         /// SphereCast 命中缓冲
+        /// 一次投射会同时命中架子与架子上摆的物品 需要多命中再按优先级挑
         /// </summary>
-        private readonly RaycastHit[] castHitBuffer = new RaycastHit[1];
+        private readonly RaycastHit[] castHitBuffer = new RaycastHit[24];
 
         /// <summary>
         /// Collider 实体 ID 到 IInteractable 缓存
@@ -82,6 +83,8 @@ namespace Interaction
 
         /// <summary>
         /// 尝试检测当前聚焦的可交互物
+        /// 收集全部命中后按 交互优先级 再按 距离 取最优
+        /// 可拾取物品优先级最高 不会被架子/容器这类大体量交互物挡住
         /// </summary>
         public bool TryDetect(out RaycastHit hit, out IInteractableInterface target)
         {
@@ -109,13 +112,38 @@ namespace Interaction
             if (hitCount <= 0)
                 return false;
 
-            hit = castHitBuffer[0];
-            target = ResolveInteractable(hit.collider);
+            int bestPriority = int.MinValue;
+            float bestDistance = float.MaxValue;
+
+            for (int i = 0; i < hitCount && i < castHitBuffer.Length; i++)
+            {
+                var candidateHit = castHitBuffer[i];
+                if (candidateHit.collider == null)
+                    continue;
+
+                var candidate = ResolveInteractable(candidateHit.collider);
+                // 不可交互的碰撞体只跳过自己 不再否决整次检测
+                if (candidate == null)
+                    continue;
+
+                int priority = InteractPriorityUtil.GetPriority(candidate);
+                bool isBetter = priority > bestPriority
+                    || (priority == bestPriority && candidateHit.distance < bestDistance);
+                if (!isBetter)
+                    continue;
+
+                bestPriority = priority;
+                bestDistance = candidateHit.distance;
+                hit = candidateHit;
+                target = candidate;
+            }
+
             return target != null;
         }
 
         /// <summary>
         /// 从 Collider 解析 IInteractable 带缓存
+        /// 缓存里的组件被销毁时(物品被拾取)会清掉重查 避免残留项挡交互
         /// </summary>
         private IInteractableInterface ResolveInteractable(Collider collider)
         {
@@ -124,7 +152,20 @@ namespace Interaction
 
             var entityId = collider.GetEntityId();
             if (interactableCacheDict.TryGetValue(entityId, out IInteractableInterface cached))
-                return cached;
+            {
+                if (cached == null)
+                    return null;
+
+                // 接口引用不重载 Unity 的判空 需要落到 UnityEngine.Object 上判断存活
+                if (cached is Object unityObject && unityObject == null)
+                {
+                    interactableCacheDict.Remove(entityId);
+                }
+                else
+                {
+                    return cached;
+                }
+            }
 
             var interactable = collider.GetComponentInParent<IInteractableInterface>();
             interactableCacheDict[entityId] = interactable;

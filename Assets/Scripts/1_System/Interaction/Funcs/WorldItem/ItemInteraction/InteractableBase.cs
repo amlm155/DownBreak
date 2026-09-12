@@ -7,7 +7,7 @@ namespace Interaction
     /// <summary>
     /// 可交互物体基类 关卡物体继承或挂脚本即可
     /// </summary>
-    public abstract class InteractableBase : MonoBehaviour, IInteractableInterface
+    public abstract class InteractableBase : MonoBehaviour, IInteractableInterface, IInteractPriorityProvider
     {
         [SerializeField, LabelText("提示文案")]
         private string promptText = "交互";
@@ -17,6 +17,11 @@ namespace Interaction
 
         [SerializeField, LabelText("交互事件")]
         public UnityEvent onInteractEvent;
+
+        /// <summary>
+        /// 交互优先级 子类按需覆盖 数值越大越优先
+        /// </summary>
+        public virtual int InteractPriority => InteractPriorityUtil.DefaultPriority;
 
         public virtual bool CanInteract(InteractionContext ctx)
         {

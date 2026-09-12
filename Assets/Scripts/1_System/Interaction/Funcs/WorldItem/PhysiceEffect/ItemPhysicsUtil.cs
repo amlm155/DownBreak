@@ -77,5 +77,41 @@ namespace Interaction
             worldPhysics.enabled = true;
             worldPhysics.BeginWorldMode();
         }
+
+        /// <summary>
+        /// 编辑器摆放物 原地固定
+        /// 不随机姿态 不下落 刚体置为运动学 这样和任何碰撞体挤压都不会把自己顶飞
+        /// 碰撞体保持实体 依旧能被射线拾取
+        /// </summary>
+        public static void PrepareStaticPlaced(GameObject root)
+        {
+            if (root == null)
+                return;
+
+            var body = root.GetComponent<Rigidbody>();
+            if (body == null)
+                body = root.AddComponent<Rigidbody>();
+
+            var colliderList = root.GetComponentsInChildren<Collider>(true);
+            for (int i = 0; i < colliderList.Length; i++)
+            {
+                if (colliderList[i] == null)
+                    continue;
+
+                colliderList[i].enabled = true;
+                colliderList[i].isTrigger = false;
+            }
+
+            body.useGravity = false;
+            body.isKinematic = true;
+            body.detectCollisions = true;
+            body.linearVelocity = Vector3.zero;
+            body.angularVelocity = Vector3.zero;
+
+            // 固定摆放不需要下落监听
+            var worldPhysics = root.GetComponent<ItemWorldPhysics>();
+            if (worldPhysics != null)
+                worldPhysics.StopWorldMode();
+        }
     }
 }

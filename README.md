@@ -95,6 +95,21 @@ DownBreak 是一款**第一人称生存沙盒**的游戏原型。玩家在程序
 - **`Narrative/GraphViewFrame`** —— 自实现的图编辑器框架(节点/边/检视器/缩放/对齐)
 - **MVVM 三件套** —— Model / ViewModel(`SperakTypes`)/ View 解耦
 
+### 7. 关卡摆场工具链 —— `Assets/Scripts/1_System/Interaction/Editor/`
+
+纯编辑器工具,不参与运行时逻辑,用于把物品表里的**世界掉落物**批量摆到场景物体上(桌面 / 货架 / 冰箱内腔):
+
+- **`WorldItemSurfacePlacerWindow`** — 物品摆放工具,三种方式:
+  - **表面采样** — 目标碰撞体包围盒内撒点 → 向下射线,只取法线朝上的面(支持顶面 / 内部 / 两者)
+  - **内部采样** — 内腔随机高度向下打射线,或手填"内部表面"清单,可越过箱体外壳取层板
+  - **锚点模式** — 场景里手工摆 `ItemPlacementAnchor`(局部 `+Y` 即承托面法线),一个锚点一个落点,位置完全可控
+  - **落位与防穿模** — 按渲染器 + 碰撞体包围盒把物品**最低点**对齐承托面;间距下限取物品自身宽度;净空盒测避免与侧壁 / 已摆物品互穿
+  - **运行时行为** — `保持编辑位置`(刚体运动学,进 Play 不随机姿态、不下落、不被顶飞,仍是可拾取物品)/ `正常世界掉落物`
+- **`InteriorColliderEditorWindow`** — 内部碰撞体编辑器:逐网格查看 / 生成贴合 `BoxCollider` 或 `MeshCollider`,让内部采样能打到内腔面,并为摆进去的物品提供物理承托
+- **`ItemPlacementAnchor`**(运行时组件)— 锚点数据 + 场景 Gizmo 可视化,附带一键生成"承托碰撞体"(薄 `BoxCollider`,顶面与锚点面重合)
+
+文档:[`Docs/工具文档/物品摆放工具.md`](Docs/工具文档/物品摆放工具.md) · [`Docs/工具文档/内部碰撞体编辑器.md`](Docs/工具文档/内部碰撞体编辑器.md)
+
 ---
 
 ## ▶️ 如何打开
@@ -136,6 +151,7 @@ DownBreak/
 │   │   ├── GAS/               ← 技能系统
 │   │   ├── Builder/           ← 程序化建筑
 │   │   ├── Inventory/         ← 网格背包
+│   │   ├── Interaction/       ← 交互与世界物品(含关卡摆场工具链)
 │   │   └── DialogAndMission/  ← 对话与任务
 │   ├── MieMieFrameTools/      ← 自研引擎框架库(可独立引用)
 │   ├── Arts/InteranlArts/     ← 自制美术资源

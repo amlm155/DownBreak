@@ -19,6 +19,10 @@ public class ItemInteract : InteractableBase, IItemInterface, IItemSaveCarrier, 
     private int itemTableID;
 
     [SerializeField]
+    /// <summary> 静态摆放物 编辑器摆好后固定在原地 不进入世界物理 </summary>
+    private bool isStaticPlaced;
+
+    [SerializeField]
     /// <summary> 世界掉落实例快照 </summary>
     private ItemSaveData saveData;
 
@@ -26,6 +30,14 @@ public class ItemInteract : InteractableBase, IItemInterface, IItemSaveCarrier, 
     private InteractOutline outline;
 
     public int ItemTableID => itemTableID;
+
+    /// <summary> 是否为静态摆放物 </summary>
+    public bool IsStaticPlaced => isStaticPlaced;
+
+    /// <summary>
+    /// 可拾取物品优先级最高 压在架子/容器上时也要先被聚焦
+    /// </summary>
+    public override int InteractPriority => InteractPriorityUtil.ItemPriority;
 
     public bool HasSaveData =>
         saveData != null && saveData.excelItemId > 0;
@@ -86,7 +98,14 @@ public class ItemInteract : InteractableBase, IItemInterface, IItemSaveCarrier, 
                 return;
             }
 
-            // 世界掉落表现
+            // 编辑器摆放物 原地固定 不随机姿态也不下落 不会被碰撞挤压顶飞
+            if (isStaticPlaced)
+            {
+                ItemPhysicsUtil.PrepareStaticPlaced(gameObject);
+                return;
+            }
+
+            // 世界掉落表现 随机姿态自由下落 落地后转 Trigger
             if (GetComponent<ItemWorldPhysics>() == null)
                 gameObject.AddComponent<ItemWorldPhysics>();
 

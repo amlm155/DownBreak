@@ -1,0 +1,22 @@
+{
+    "name": "DownBreak.System.Interaction.Editor",
+    "rootNamespace": "",
+    "references": [
+        "DownBreak.System",
+        "MmInventory.ItemData",
+        "LubanTableData.Gen",
+        "Luban.Runtime",
+        "MieMieFrameWork.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
